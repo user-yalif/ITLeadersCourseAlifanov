@@ -1,4 +1,4 @@
-﻿1. Clone my repo first
+﻿1. Clone my repo first  https://github.com/user-yalif/ITLeadersCourse.git
 2. Download and install Visual Studio
 3. Download and install Git
 4. Create an account on GitHub
@@ -7,6 +7,8 @@
 7. Clone the repository in the work directory
 8. Create a console application
 9. Cope Output logic
+
+Link to Lesson 1 video: https://drive.google.com/file/d/1J8dyBNJ6gwTo59Tt99qyCzR8-1cBAqvt/view?usp=sharing
 
 Optional
 -------------------------------------------------------------------------------------------------------------
