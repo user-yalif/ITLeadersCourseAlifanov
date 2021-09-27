@@ -1,4 +1,4 @@
-﻿namespace ConsoleApp.CSharpBasics.IO.Iterfaces
+﻿namespace ConsoleApp.CSharpBasics.IO.Interfaces
 {
     public interface IOutput
     {
