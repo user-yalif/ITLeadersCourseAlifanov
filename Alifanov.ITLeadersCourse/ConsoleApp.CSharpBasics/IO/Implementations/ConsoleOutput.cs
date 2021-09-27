@@ -1,7 +1,7 @@
 ﻿namespace ConsoleApp.CSharpBasics.IO.Implementations
 {
     using System;
-    using ConsoleApp.CSharpBasics.IO.Iterfaces;
+    using ConsoleApp.CSharpBasics.IO.Interfaces;
 
     public class ConsoleOutput : IOutput
     {
