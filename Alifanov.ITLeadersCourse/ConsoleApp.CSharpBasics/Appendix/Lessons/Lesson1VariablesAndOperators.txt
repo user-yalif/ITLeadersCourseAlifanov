@@ -59,7 +59,8 @@
             string firstName = "John";
             string lastName = "Smith";
 
-            Out.WriteLine(firstName + (1 + 2));
+            Out.WriteLine(firstName + 1 + 2); // John12
+            Out.WriteLine(firstName + (1 + 2)); // John3
 
             // Comparison operators
             x = 10;
@@ -89,7 +90,7 @@
             Out.WriteLine(arr[1]);
             string str = "Hello";
 
-            Out.WriteLine(str[5]);
+            // Out.WriteLine(str[5]); <-- !!! Exception Out of range
         }
     }
 }
