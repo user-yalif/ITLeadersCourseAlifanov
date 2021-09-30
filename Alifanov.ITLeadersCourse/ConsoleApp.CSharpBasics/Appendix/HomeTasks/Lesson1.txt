@@ -19,3 +19,65 @@ Optional
 
 13. Implement Input logic on basis of Output.
     For two preceding tasks make all inputs in home tasks with Input realization.
+
+Answers
+-------------------------------------------------------------------------------------------------------------
+Task 11.
+    int a, b, c;
+    a = 1;
+    b = 2;
+    c = 3;
+
+    int sum = a + b + c;
+
+    Out.WriteLine(a + " + " + b + " + " + c + " = " + sum);
+
+-------------------------------------------------------------------------------------------------------------  
+Task 12.
+        double radius = 2.6;
+
+        double circleArea = Math.PI * Math.Pow(radius, 2);
+        double circlePerimeter = 2 * Math.PI * radius;
+
+        Out.WriteLine("Circle arrea is: " + circleArrea);
+        Out.WriteLine("Circle arrea is: " + circlePerimeter);
+
+-------------------------------------------------------------------------------------------------------------
+After Input logic implementation
+-------------------------------------------------------------------------------------------------------------
+Task 11
+    Out.WriteLine("Calculate sum of three numbers");
+    Out.WriteLine();
+
+    int firstNumber, secondNumber, thirdNumber;
+    firstNumber = secondNumber = thirdNumber = default;
+
+    Out.Write("Input first integer: ");
+    firstNumber = int.Parse(In.ReadLine());
+
+    Out.Write("Input second integer: ");
+    secondNumber = int.Parse(In.ReadLine());
+
+    Out.Write("Input third integer: ");
+    thirdNumber = int.Parse(In.ReadLine());
+
+    int sum = firstNumber + secondNumber + thirdNumber;
+
+    Out.WriteLine($"The sum of {firstNumber} + {secondNumber} + {thirdNumber} is {sum}");
+-------------------------------------------------------------------------------------------------------------
+Task 12
+    Out.WriteLine("Calculate circle perimeter and area.");
+    Out.WriteLine();
+
+    double radius = default;
+    double circleArea = 0.0;
+    double circlePerimeter = 0.0;
+
+    Out.Write("Input circle radius: ");
+    radius = double.Parse(In.ReadLine());
+
+    circleArea = Math.PI * Math.Pow(radius, 2);
+    circlePerimeter = 2 * Math.PI * radius;
+
+    Out.WriteLine("Circle area is: " + circleArea);
+    Out.WriteLine("Circle perimeter is: " + circlePerimeter);
