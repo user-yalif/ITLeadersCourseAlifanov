@@ -3,14 +3,15 @@
     using System;
     using ConsoleApp.CSharpBasics.IO.Interfaces;
 
-    public class OutputFactory : IOutputFactory
+    public class InputFactory : IInputFactory
     {
-        public override IOutput GetOutputInstance(Type outputType)
+
+        public override IInput GetOutputInstance(Type inputType)
         {
-            switch (outputType)
+            switch (inputType)
             {
-                case Type when outputType == typeof(ConsoleOutput):
-                    return new ConsoleOutput();
+                case Type when inputType == typeof(ConsoleInput):
+                    return new ConsoleInput();
                 default:
                     throw new NotImplementedException();
             }
