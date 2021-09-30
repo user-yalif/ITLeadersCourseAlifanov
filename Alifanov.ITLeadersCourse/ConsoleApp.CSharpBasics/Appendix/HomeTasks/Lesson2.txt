@@ -1,0 +1,11 @@
+﻿1. Implement logic of Input and Output
+2. Write a program which asks a user to guess a number between some range the user doesn't know (e.g. 10 and 20).
+   Requirements:
+   1. The user inputs an integer.
+   2. If number is less than number to be guessed then program displayes message "You are wrong! Your number is less!".
+   3. If number is grater than number to be guessed then program displayes message "You are wrong! Your number is grater!".
+   4. If number is equal to number to be guessed then program displayes message "Correct! This is #."
+   5. If number is out of range then program displayes "Your number is out of range!".
+
+   Use if-else or nested if-else or switch statemnt
+   Debug the program with different input parameters to make sure it works correctly.
