@@ -13,7 +13,7 @@
             {
                 if (input == null)
                 {
-                    input = new InputFactory().GetOutputInstance(typeof(ConsoleInput));
+                    input = new InputFactory().GetInputInstance(typeof(ConsoleInput));
                 }
 
                 return input;
