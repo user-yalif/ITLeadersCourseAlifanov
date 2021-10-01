@@ -4,6 +4,6 @@
 
     public abstract class IInputFactory
     {
-        public abstract IInput GetOutputInstance(Type outpuType);
+        public abstract IInput GetInputInstance(Type outpuType);
     }
 }

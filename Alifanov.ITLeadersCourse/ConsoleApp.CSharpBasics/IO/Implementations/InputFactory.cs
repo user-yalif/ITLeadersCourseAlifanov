@@ -6,7 +6,7 @@
     public class InputFactory : IInputFactory
     {
 
-        public override IInput GetOutputInstance(Type inputType)
+        public override IInput GetInputInstance(Type inputType)
         {
             switch (inputType)
             {
