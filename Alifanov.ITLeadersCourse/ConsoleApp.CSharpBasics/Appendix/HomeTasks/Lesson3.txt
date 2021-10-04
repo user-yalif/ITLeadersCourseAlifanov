@@ -14,8 +14,9 @@
    In case login and password are wrong ask to input them again and print the amounts of attemts left.
    In case 3 attemts was used the program prints "Sorry, try again later." and finishes its work.
 
-5. (Optional) Print triangle so that its right angle is in the top right.
-   Print triangle so that its right angle is in the bottom right.
+5. (Optional) 
+   1. Print triangle so that its right angle is in the top right.
+   2. Print triangle so that its right angle is in the bottom right.
 
    *****
     ****
