@@ -11,3 +11,74 @@
    Debug the program with different input parameters to make sure it works correctly.
 
    Link to Lesson 2 video: https://drive.google.com/file/d/1Pug-Pt6HKs-k7EGmXMv0lu5A22gyXveO/view?usp=sharing
+
+Answer
+-------------------------------------------------------------------------------------------------------------------
+Task 1.
+
+using static ConsoleApplication.CSharpBasics.IO.Input;
+using static ConsoleApplication.CSharpBasics.IO.Output;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Out.WriteLine("Try to guess a number between two numbers.");
+
+        int guessNumber;
+		const int numberToBeGuessed = 15;
+		const int minimumBorder = 10;
+		const int maximumBorder = 20;
+
+        Out.Write("Input an integer: ");
+        guessNumber = int.Parse(In.ReadLine());
+
+        if (guessNumber == numberToBeGuessed)
+        {
+            Out.WriteLine($"You are right! This is {numberToBeGuessed}");
+        }
+        else
+        {
+            if (guessNumber < minimumBorder || guessNumber > maximumBorder)
+            {
+                Out.WriteLine("Your number is out of range!");
+            }
+            else
+            {
+                if (guessNumber < numberToBeGuessed)
+                {
+                    Out.WriteLine("You are wrong! Your number is less!");
+                }
+                else if (guessNumber > numberToBeGuessed)
+                {
+                    Out.WriteLine("You are wrong! Your number is grater!");
+                }
+            }
+        }
+		
+		// Use switch only
+		switch (guessNumber)
+		{
+			case numberToBeGuessed:
+				Out.WriteLine($"You are right! This is {numberToBeGuessed}");
+				break;
+			default:
+				switch (guessNumber)
+				{
+					case < minimumBorder:
+					case > maximumBorder:
+						Out.WriteLine("Your number is out of range!");
+						break;
+					case > numberToBeGuessed:
+						Out.WriteLine("You are wrong! Your number is grater!");
+						break;
+					case < numberToBeGuessed:
+						Out.WriteLine("You are wrong! Your number is less!");
+						break;
+					default:
+						break;
+				}
+				break;
+		}
+    }
+}

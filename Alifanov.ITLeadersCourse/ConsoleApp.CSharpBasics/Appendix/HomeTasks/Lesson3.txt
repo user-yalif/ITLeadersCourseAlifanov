@@ -1,1 +1,33 @@
-﻿
+﻿1. Write a program that has given an array of integers
+   int[] integersArray = { 1, 2, 3, 4, 5 }
+   Program should transefer given array of integers into another one in reverse oder and print the reversed array in console.
+
+2. Rewrite program in task 1 so that the program can reverse oder in the same array without using additional one.
+
+3. Write a program that asks user to input login and password, "Q" for exit and checks them.
+   In case login and password are correct the program prints "You are logged in." and finishes its work.
+   In case login and password are wrong ask to input them again "Password or login are wrong. Input them once more please.".
+   In case "Q" was inputted in login or password the program finishes its work printing "Good bye!"
+
+4. Rewrite the program form task 3 so that the user has only three atempts to input its correct loggin and password.
+   In case login and password are correct the program prints "You are logged in." and finishes its work.
+   In case login and password are wrong ask to input them again and print the amounts of attemts left.
+   In case 3 attemts was used the program prints "Sorry, try again later." and finishes its work.
+
+5. (Optional) 
+   1. Print triangle so that its right angle is in the top right.
+   2. Print triangle so that its right angle is in the bottom right.
+
+   *****
+    ****
+     ***
+      **
+       *
+
+       *
+      **
+     ***
+    ****
+   *****
+
+Link to Lesson 3 video: https://drive.google.com/file/d/1ogJVMp3YIRO6qb0Zt4aeTf1mtD3e2xrz/view?usp=sharing
