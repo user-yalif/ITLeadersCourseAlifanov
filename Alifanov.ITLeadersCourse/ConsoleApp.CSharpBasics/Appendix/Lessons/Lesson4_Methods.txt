@@ -27,6 +27,8 @@
             TryToGetAccess("John", "Smith", minimumAgeToGetAccess >= 12);
             TryToGetAccess("John", "Smith", minimumAgeToGetAccess >= 18);
 
+            Out.WriteLine("Automation test simulation. Guess number")
+
             int[] testNumbers = {
                 15,
                 9,
@@ -63,9 +65,9 @@
             Out.WriteLine($"Sum: {sum}");
         }
 
-        public static int GetSumOfTwoIntegers(int firstSummond, int secondSummond)
+        public static int GetSumOfTwoIntegers(int firstSummand, int secondSummand)
         {
-            int sum = firstSummond + secondSummond;
+            int sum = firstSummand + secondSummand;
 
             return sum;
         }
