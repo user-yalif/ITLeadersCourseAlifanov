@@ -1,1 +1,157 @@
-﻿
+﻿namespace ConsoleApp.CSharpBasics
+{
+    using static ConsoleApp.CSharpBasics.IO.Output;
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            WriteNewLine();
+
+            PrintSumOfIntegers(2, 3);
+
+            int sumOfTwoInts = GetSumOfTwoIntegers(3, 6);
+
+            int sumOfDays = GetSumOfDays(new[] { 1, 2, 3, 4, 5, 6 });
+            Out.WriteLine($"Sum of days: {sumOfDays}");
+            sumOfDays = GetSumOfDays(2, 3, 5);
+            Out.WriteLine($"Sum of days: {sumOfDays}");
+
+            Out.WriteLine($"Sum of integers: {GetSum(1, 2)}");
+            Out.WriteLine($"Sum of doubles: {GetSum(1.5, 2.3)}");
+
+            TryToGetAccess("John", "Smith");
+
+            int minimumAgeToGetAccess = 18;
+
+            TryToGetAccess("John", "Smith", minimumAgeToGetAccess >= 12);
+            TryToGetAccess("John", "Smith", minimumAgeToGetAccess >= 18);
+
+            Out.WriteLine("Automation test simulation. Guess number")
+
+            int[] testNumbers = {
+                15,
+                9,
+                21,
+                10,
+                20
+            };
+
+            string[] expectedMessages =
+            {
+                $"You are right! This is {testNumbers[0]}",
+                "Your number is out of range!",
+                "Your number is out of range!",
+                "You are wrong! Your number is less!",
+                "You are wrong! Your number is grater!"
+            };
+
+            for (int i = 0; i < testNumbers.Length; i++)
+            {
+                string actualMessage = TestGuessNumber(testNumbers[i]);
+                PrintTestResults(testNumbers[i], actualMessage, expectedMessages[i]);
+            }
+        }
+
+        public static void WriteNewLine()
+        {
+            Out.WriteLine();
+        }
+
+        public static void PrintSumOfIntegers(int i, int j)
+        {
+            int sum = i + j;
+
+            Out.WriteLine($"Sum: {sum}");
+        }
+
+        public static int GetSumOfTwoIntegers(int firstSummand, int secondSummand)
+        {
+            int sum = firstSummand + secondSummand;
+
+            return sum;
+        }
+
+        public static int GetSumOfDays(params int[] days)
+        {
+            int sum = 0;
+
+            foreach (var day in days)
+            {
+                // sum = sum + day
+                sum += day;
+            }
+
+            return sum;
+        }
+
+        public static int GetSum(int i, int j)
+        {
+            return i + j;
+        }
+
+        public static double GetSum(double i, double j)
+        {
+            return i + j;
+        }
+
+        public static void TryToGetAccess(string firstName = null, string lastName = null, bool isAccessPermited = false)
+        {
+            if (firstName == null || lastName == null)
+            {
+                Out.WriteLine("Access denied! Please, provide your first name or last name.");
+                return;
+            }
+
+            Out.WriteLine(isAccessPermited ? $"Welcome {firstName} {lastName}!" : $"{firstName} {lastName}, access dinided for your age!!!");
+        }
+
+        public static string TestGuessNumber(int testNumber)
+        {
+            const int numberToBeGuessed = 15;
+            const int minimumBorder = 10;
+            const int maximumBorder = 20;
+
+            if (testNumber == numberToBeGuessed)
+            {
+                return $"You are right! This is {numberToBeGuessed}";
+            }
+            else
+            {
+                if (testNumber < minimumBorder || testNumber > maximumBorder)
+                {
+                    return "Your number is out of range!";
+                }
+                else
+                {
+                    if (testNumber < numberToBeGuessed)
+                    {
+                        return "You are wrong! Your number is less!";
+                    }
+                    else if (testNumber > numberToBeGuessed)
+                    {
+                        return "You are wrong! Your number is grater!";
+                    }
+                }
+            }
+
+            return $"Unexpected behavior while processing number {testNumber}";
+        }
+
+        public static void PrintTestResults(int testNumber, string actualMessage, string expectedMessage)
+        {
+            if (actualMessage == expectedMessage)
+            {
+                Out.WriteLine($"Test value: {testNumber}; Test: PASSED");
+                Out.WriteLine($"Expected message: {expectedMessage}");
+                Out.WriteLine($"Actual message: {actualMessage}");
+            }
+            else
+            {
+                Out.WriteLine($"Test value: {testNumber}; Test: FAILED");
+                Out.WriteLine($"Expected message: {expectedMessage}");
+                Out.WriteLine($"Actual message: {actualMessage}");
+            }
+        }
+    }
+}

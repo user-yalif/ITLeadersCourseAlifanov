@@ -1,1 +1,13 @@
-﻿
+﻿1. Implement input in Homework Lesson 1 Task 11 by implementing a method for input.
+   (Optionaly) Input should prevent the user from inputing wrong value displaying the message "Make correct input!"
+    Requirements:
+        1. On start program asks user how many numbers he wants to sum
+        2. Program displays "Input n-th integer: " and user input numbers one by one
+        3. Program prints result despite of how many numbers the user inputs (e.g. "Sum of 1 2 3 is 6")
+    
+    PS: All necessary actions must be implemented by methods
+
+2. Automation testing simulation
+    1. Simulate automation testing of the Homework 3 Task 3 and print results of testing
+
+Link to Lesson 3 video: https://drive.google.com/file/d/1ld0FYHGzN-9BCEvvNsTNqekz8YU7Os52/view?usp=sharing
