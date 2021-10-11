@@ -1,1 +1,149 @@
-﻿
+﻿namespace ConsoleApp.CSharpBasics
+{
+    using System.Collections.Generic;
+    using static ConsoleApp.CSharpBasics.IO.Input;
+    using static ConsoleApp.CSharpBasics.IO.Output;
+
+    class Program
+    {
+        public enum Directions
+        {
+            South = 8,
+            East = 6,
+            North = 4,
+            West = 2
+        }
+
+        static void Main(string[] args)
+        {
+            Directions direction = Directions.South;
+
+            Out.WriteLine(direction);
+            Out.WriteLine((int)direction);
+
+            Out.WriteLine("Program: Choose direction.");
+            Out.Write();
+            Out.WriteLine("South - 8; East - 6; North - 4; West - 2; 0 - for quit");
+            Out.WriteLine("Go!");
+
+            int input;
+
+            do
+            {
+                input = int.Parse(In.ReadLine());
+
+                switch ((Directions)input)
+                {
+                    case Directions.South:
+                        Out.WriteLine("Yor are going SOUTH");
+                        break;
+                    case Directions.East:
+                        Out.WriteLine("Yor are going EAST");
+                        break;
+                    case Directions.North:
+                        Out.WriteLine("Yor are going NORTH");
+                        break;
+                    case Directions.West:
+                        Out.WriteLine("Yor are going WEST");
+                        break;
+                    default:
+                        if (input != 0)
+                        {
+                            Out.WriteLine("Wrong direction!!!");
+                        }
+                        break;
+                }
+            } while (input != 0);
+
+            Out.WriteLine("Bye!");
+
+            string firstName = "John";
+            string lastName = "Smith";
+
+            string fullName = firstName + " " + lastName;
+
+            Out.WriteLine($"Welcome {fullName}!");
+
+            Out.WriteLine(string.Format("Welcome {0} {1}", firstName, lastName));
+
+            Out.WriteLine("Program: Get employee list with the same names.");
+
+            string[] employeeList = new string[]
+            {
+                "John Carter",
+                "John Carter",
+                "Della Moris",
+                "Pamela Anderson",
+                "Fill Smith",
+                "Della Armstrong",
+                "John Smith"
+            };
+
+            List<string> emloyeeWithTheSameNames = new();
+            List<string> matchedNames = new List<string>();
+
+            foreach (var employee in employeeList)
+            {
+                int whiteSpaceIndex = employee.IndexOf(" ");
+                firstName = employee.Substring(0, whiteSpaceIndex);
+
+                if (!matchedNames.Contains(firstName))
+                {
+                    int counterNames = 0;
+
+                    foreach (var employeeName in employeeList)
+                    {
+                        if (employeeName.Contains(firstName))
+                        {
+                            counterNames++;
+                        }
+                    }
+
+                    if(counterNames > 1)
+                    {
+                        matchedNames.Add(firstName);
+
+                        foreach (var empl in employeeList)
+                        {
+                            if (empl.Contains(firstName))
+                            {
+                                emloyeeWithTheSameNames.Add(empl);
+                            }
+                        }
+                    }
+                }
+            }
+
+            foreach (var employee in emloyeeWithTheSameNames)
+            {
+                Out.WriteLine(employee.ToUpper());
+            }
+
+            foreach (var employee in emloyeeWithTheSameNames)
+            {
+                int index = employee.IndexOf(" ");
+                string temp = employee.Remove(0, index);
+
+                temp = temp.Insert(0, "ANONIMUS");
+
+                Out.WriteLine(temp);
+            }
+
+            string namesQuery = string.Empty;
+            namesQuery = string.Join(", ", emloyeeWithTheSameNames);
+
+            Out.WriteLine(namesQuery);
+
+            var splitted = namesQuery.Split(",");
+
+            foreach (var item in splitted)
+            {
+                Out.WriteLine(item);
+
+                var temp = item.Trim();
+            }
+
+            char character = namesQuery[1];
+        }
+    }
+}
