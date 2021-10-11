@@ -11,3 +11,174 @@
     1. Simulate automation testing of the Homework 3 Task 3 and print results of testing
 
 Link to Lesson 4 video: https://drive.google.com/file/d/1ld0FYHGzN-9BCEvvNsTNqekz8YU7Os52/view?usp=sharing
+
+Answers
+-------------------------------------------------------------------------------------------------------------------
+Task 1
+
+namespace ConsoleApplication.CSharpBasics
+{
+    using static ConsoleApplication.CSharpBasics.IO.Input;
+    using static ConsoleApplication.CSharpBasics.IO.Output;
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Out.Write("How many numbers you want to summarize: ");
+
+            int numberAmounts = GetIntegerInput();
+
+            Out.WriteLine();
+            Out.WriteLine($"Calculate sum of {numberAmounts} numbers");
+            Out.WriteLine();
+
+            int[] arr = new int[numberAmounts];
+
+            for (int i = 0; i < numberAmounts; i++)
+            {
+                Out.Write($"Input {i + 1} integer: ");
+                arr[i] = GetIntegerInput();
+            }
+
+            int totalSum = GetSum(arr);
+
+            PrintResult(arr, totalSum);
+        }
+
+        static int GetIntegerInput()
+        {
+            int number;
+            bool isInputCorrect;
+
+            do
+            {
+                if (!int.TryParse(In.ReadLine(), out number))
+                {
+                    isInputCorrect = false;
+                    Out.WriteLine("Make correct input!");
+                }
+                else
+                {
+                    isInputCorrect = true;
+                }
+            } while (!isInputCorrect);
+
+            return number;
+        }
+
+        static int GetSum(int[] arr)
+        {
+            int sum = 0;
+
+            foreach (var value in arr)
+            {
+                sum += value;
+            }
+
+            return sum;
+        }
+
+        static void PrintResult(int[] arr, int totalSum)
+        {
+            Out.Write($"The sum of ");
+
+            foreach (var item in arr)
+            {
+                Out.Write($"{item} ");
+            };
+
+            Out.WriteLine($"is {totalSum}");
+        }
+    }
+}
+
+-------------------------------------------------------------------------------------------------------------------
+Task 2
+
+namespace ConsoleApplication.CSharpBasics
+{
+    using static ConsoleApplication.CSharpBasics.IO.Output;
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] testLogins =
+            {
+                "nickname",
+                "qwert",
+                "Q",
+                "nickname"
+            };
+
+            string[] testPasswords =
+            {
+                "12345",
+                "54321",
+                "12345",
+                "Q"
+            };
+
+            string[] expectedMessages =
+            {
+                "You are logged in successfully.",
+                "Password or login are wrong. Input them once more please.",
+                "Good bye!",
+                "Good bye!"
+            };
+
+            for (int i = 0; i < testLogins.Length; i++)
+            {
+                string actualMessage = TestUserInput(testLogins[i], testPasswords[i]);
+
+            }
+        }
+
+        public static string TestUserInput(string testLogin, string testPassword)
+        {
+            const string userLogin = "nickname";
+            const string userPassword = "12345";
+            const string quitMarker = "Q";
+
+            bool isLogInSuccess = false;
+
+            do
+            {
+                if (testLogin == userLogin && testPassword == userPassword)
+                {
+                    isLogInSuccess = true;
+
+                    return "You are logged in successfully.";
+                }
+                else
+                {
+                    if (testLogin == quitMarker || testPassword == quitMarker)
+                    {
+                        return "Good bye!";
+                    }
+                    else
+                    {
+                        return "Password or login are wrong. Input them once more please.";
+                    }
+                }
+            } while (!isLogInSuccess);
+        }
+
+        public void AssertThatMessagesAreCorrect(string testLogin, string testPassword, string actualMessage, string expectedMessage)
+        {
+            if (actualMessage == expectedMessage)
+            {
+                Out.WriteLine($"Test login: {testLogin}; Test password: {testPassword}; Test PASSED");
+                Out.WriteLine($"Expected message: {expectedMessage}");
+                Out.WriteLine($"Actual message: {actualMessage}");
+            }
+            else
+            {
+                Out.WriteLine($"Test login: {testLogin}; Test password: {testPassword}; Test FAILED");
+                Out.WriteLine($"Expected message: {expectedMessage}");
+                Out.WriteLine($"Actual message: {actualMessage}");
+            }
+        }
+    }
+}
