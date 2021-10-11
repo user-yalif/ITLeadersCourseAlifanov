@@ -10,4 +10,4 @@
 2. Automation testing simulation
     1. Simulate automation testing of the Homework 3 Task 3 and print results of testing
 
-Link to Lesson 3 video: https://drive.google.com/file/d/1ld0FYHGzN-9BCEvvNsTNqekz8YU7Os52/view?usp=sharing
+Link to Lesson 4 video: https://drive.google.com/file/d/1ld0FYHGzN-9BCEvvNsTNqekz8YU7Os52/view?usp=sharing
