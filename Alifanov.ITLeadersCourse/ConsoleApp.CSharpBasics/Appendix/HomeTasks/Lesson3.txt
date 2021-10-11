@@ -74,6 +74,7 @@ foreach (var item in arr)
 -------------------------------------------------------------------------------------------------------------------
 Task 3
 
+const string userLogin = "nickname";
 const string userPassword = "12345";
 const string quitMarker = "Q";
 
