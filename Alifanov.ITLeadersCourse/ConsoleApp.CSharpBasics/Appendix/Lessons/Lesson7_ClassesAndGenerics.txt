@@ -1,0 +1,129 @@
+﻿namespace ConsoleApp.CSharpBasics
+{
+    using System.Collections.Generic;
+    using ConsoleApp.CSharpBasics.Classes;
+    using static ConsoleApp.CSharpBasics.IO.Output;
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Person firstPerson = new Person();
+
+            Out.WriteLine("First Person's name is " + firstPerson.Name);
+            Out.WriteLine(firstPerson.GetIntroduction());
+
+            firstPerson.Name = "Bob";
+
+            Out.WriteLine("First Person's name is " + firstPerson.Name);
+            Out.WriteLine(firstPerson.GetIntroduction());
+
+            Person secondPerson = new Person("Tom");
+
+            Out.WriteLine("Second Person's name is " + secondPerson.Name);
+            Out.WriteLine(secondPerson.GetIntroduction());
+
+            Person[] personsArray =
+            {
+                new Person("Vera"),
+                new Person("Sergii"),
+                new Person("Yury")
+            };
+
+            foreach (var person in personsArray)
+            {
+                Out.WriteLine(person.GetIntroduction());
+            }
+
+            TVSet tv = new TVSet(1920, 1080);
+            Out.WriteLine(tv.Display());
+
+            List<Person> listOfPersons = new List<Person>(personsArray);
+
+            foreach (var person in listOfPersons)
+            {
+                Out.WriteLine(person.GetIntroduction());
+            }
+
+            Print<int>(56);
+            Print<char>('a');
+            Print<string>("Hello!");
+            Print<double>(2.6);
+            Print<Person>(firstPerson);
+
+            Printer<int> intPrinter = new Printer<int>();
+
+            intPrinter.Print(5);
+            intPrinter.Print((int)2.3);
+
+            intPrinter.PrintAllData();
+
+            intPrinter.PrintAndSave(6);
+            intPrinter.PrintAndSave(5);
+
+            intPrinter.PrintAllData();
+
+            Printer<string> stringPrinter = new Printer<string>();
+
+            stringPrinter.PrintAndSave(firstPerson.Name);
+            stringPrinter.PrintAndSave(secondPerson.Name);
+
+            stringPrinter.PrintAllData();
+
+            List<string> list1 = new()
+            {
+                "Bob",
+                "Tom"
+            };
+
+            List<string> list2 = new()
+            {
+                "Samanta",
+                "Julia"
+            };
+
+            Swap<string>(list1, list2);
+
+
+        }
+
+        public static void Print<T>(T data)
+        {
+            Out.WriteLine(data);
+        }
+
+        public class Printer<T>
+        {
+            private readonly List<T> printedData = new();
+
+            public void Print(T data)
+            {
+                Out.WriteLine(data);
+            }
+
+            public void PrintAndSave(T data)
+            {
+                printedData.Add(data);
+                Out.WriteLine(data);
+            }
+
+            public void PrintAllData()
+            {
+                foreach (var data in printedData)
+                {
+                    Out.WriteLine(data);
+                }
+            }
+        }
+
+        public static void Swap<T>(List<T> list1, List<T> list2)
+        {
+            for (int i = 0; i < list1.Count; i++)
+            {
+                T temp = list1[i];
+                list1[i] = list2[i];
+                list2[i] = temp;
+            }
+        }
+    }
+}
