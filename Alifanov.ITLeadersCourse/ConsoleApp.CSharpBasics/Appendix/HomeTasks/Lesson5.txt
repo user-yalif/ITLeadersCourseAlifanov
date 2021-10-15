@@ -5,3 +5,164 @@
    Print results.
 
 Link to Lesson 5 video: https://drive.google.com/file/d/1B8HbCtNgonDyS1h9KTq_7BlMuR5XCAcl/view?usp=sharing
+
+Answers
+-------------------------------------------------------------------------------------------------------------------
+
+Task 1
+
+namespace ConsoleApp.CSharpBasics
+{
+    using static ConsoleApp.CSharpBasics.IO.Output;
+
+    class Program
+    {
+        public enum Directions
+        {
+            South = 8,
+            East = 6,
+            West = 4,
+            North = 2
+        }
+
+        static void Main(string[] args)
+        {
+            Directions[] testDirections =
+            {
+                Directions.South,
+                Directions.East,
+                Directions.West,
+                Directions.North,
+                (Directions)0,
+                (Directions)5
+            };
+
+            string[] expectedMessages =
+            {
+                "You are going SOUTH",
+                "You are going EAST",
+                "You are going WEST",
+                "You are going NORTH",
+                "Bye!",
+                "Wrong direction!"
+            };
+
+            for (int i = 0; i < testDirections.Length; i++)
+            {
+                string actualMessage = TestCheckDirection(testDirections[i]);
+                PrintTestResults(testDirections[i], actualMessage, expectedMessages[i]);
+            }
+        }
+
+        public static string TestCheckDirection(Directions testDirection)
+        {
+            do
+            {
+                switch ((Directions)testDirection)
+                {
+                    case Directions.South:
+                        return "You are going SOUTH";
+                    case Directions.East:
+                        return "You are going EAST";
+                    case Directions.West:
+                        return "You are going WEST";
+                    case Directions.North:
+                        return "You are going NORTH";
+                    default:
+                        if (testDirection != 0)
+                        {
+                            return "Wrong direction!";
+                        }
+                        break;
+                }
+            } while (testDirection != 0);
+
+            return "Bye!";
+        }
+
+        public static void PrintTestResults(Directions testDirection, string actualMessage, string expectedMessage)
+        {
+            if (actualMessage == expectedMessage)
+            {
+                Out.WriteLine($"Test value {testDirection} : Test: PASSED");
+                Out.WriteLine($"Expected message: {expectedMessage}");
+                Out.WriteLine($"Actual message: {actualMessage}");
+            }
+            else
+            {
+                Out.WriteLine($"Test value {testDirection} : Test: FAILED");
+                Out.WriteLine($"Expected message: {expectedMessage}");
+                Out.WriteLine($"Actual message: {actualMessage}");
+            }
+        }
+    }
+}
+
+-------------------------------------------------------------------------------------------------------------------
+
+Task 2
+
+namespace ConsoleApp.CSharpBasics
+{
+    using System.Collections.Generic;
+    using static ConsoleApp.CSharpBasics.IO.Output;
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Out.WriteLine("Program: Get employee list with the same last name.");
+
+            string[] employeeList =
+            {
+                "John Carter",
+                "John Carter",
+                "Della Moriss",
+                "Pamella Anderson",
+                "Fill Smith",
+                "Della Armstrong",
+                "John Smith"
+            };
+
+            List<string> employeeWithSameLastName = new();
+            List<string> matchedNames = new();
+
+            foreach (var employeeFullName in employeeList)
+            {
+                int index = employeeFullName.IndexOf(" ");
+                string lastName = employeeFullName.Substring(index + 1);
+
+                if (!matchedNames.Contains(lastName))
+                {
+                    int counterNames = 0;
+
+                    foreach (var employeeName in employeeList)
+                    {
+                        if (employeeName.Contains(lastName))
+                        {
+                            counterNames++;
+                        }
+                    }
+
+                    if (counterNames > 1)
+                    {
+                        matchedNames.Add(lastName);
+
+                        foreach (var employee in employeeList)
+                        {
+                            if (employee.Contains(lastName))
+                            {
+                                employeeWithSameLastName.Add(employee);
+                            }
+                        }
+                    }
+                }
+            }
+
+            foreach (var item in employeeWithSameLastName)
+            {
+                Out.WriteLine(item.ToUpper());
+            }
+        }
+    }
+}
