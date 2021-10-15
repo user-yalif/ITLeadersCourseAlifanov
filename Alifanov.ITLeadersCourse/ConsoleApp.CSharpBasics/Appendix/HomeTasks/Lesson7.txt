@@ -1,0 +1,4 @@
+﻿1. Read about Generics collections and about their methods.
+2. Define your own class and its realization.
+
+Link to Lessons 6 and 7 videos: https://drive.google.com/file/d/117Z02UCCbQe7ncWpT_jqi8-lhndbLCuU/view?usp=sharing
