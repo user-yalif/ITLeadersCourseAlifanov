@@ -66,7 +66,7 @@
         //public Person()
         //{
         //    this.sex = sex;
-        //    this.dateOfBirth = new DateTime(dateOfBirth.Year, dateOfBirth.Month, dateOfBirth.Day);
+        //    this.dateOfBirth = default;
         //    this.name = name;
         //    this.weight = weight;
         //}

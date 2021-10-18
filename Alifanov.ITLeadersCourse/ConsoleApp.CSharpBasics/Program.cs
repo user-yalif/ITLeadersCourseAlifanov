@@ -1,11 +1,11 @@
-﻿using ConsoleApp.CSharpBasics.Classes.OOP.Enums;
-using ConsoleApp.CSharpBasics.Classes.OOP.Implementations;
-using ConsoleApp.CSharpBasics.Classes.OOP.Interfaces;
-using ConsoleApp.CSharpBasics.Classes.OOP.Structs;
-using static ConsoleApp.CSharpBasics.IO.Output;
-
-namespace ConsoleApp.CSharpBasics
+﻿namespace ConsoleApp.CSharpBasics
 {
+    using ConsoleApp.CSharpBasics.Classes.OOP.Enums;
+    using ConsoleApp.CSharpBasics.Classes.OOP.Implementations;
+    using ConsoleApp.CSharpBasics.Classes.OOP.Interfaces;
+    using ConsoleApp.CSharpBasics.Classes.OOP.Structs;
+    using static ConsoleApp.CSharpBasics.IO.Output;
+
     class Program
     {
         static void Main(string[] args)
@@ -30,24 +30,29 @@ namespace ConsoleApp.CSharpBasics
         }
     }
 
-    public class Rectungle
-    {
-        public double width;
-        public double height;
+    // Incapsulation
+    // Inharitance
+    // Polymorphism
+    // Abstraction
 
-        public Rectungle(double width, double height)
+    public class Rectangle
+    {
+        private double width;
+        private double height;
+
+        public Rectangle(double width, double height)
         {
             this.width = width;
             this.height = height;
         }
 
-        public double CalculatePerimeter()
+        public double CalculateArea()
         {
             return width * height;
         }
     }
 
-    public class Square : Rectungle
+    public class Square : Rectangle
     {
         public Square(double side) : base(side, side)
         {
