@@ -4,7 +4,7 @@
 
     public interface IManager : IEmployee
     {
-        (int created, int inProgress, int closed) AnalizeTeamWork(Task[] tasks);
+        (int created, int inProgress, int closed) AnalyzeTeamWork(Task[] tasks);
 
         Task ReassignTask(Task task, ulong assigneeId);
     }
