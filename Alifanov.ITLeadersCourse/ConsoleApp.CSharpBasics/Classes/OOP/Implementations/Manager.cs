@@ -12,7 +12,7 @@
             base.Role = EmployeeRoles.Manager;
         }
 
-        public (int created, int inProgress, int closed) AnalizeTeamWork(Task[] tasks)
+        public (int created, int inProgress, int closed) AnalyzeTeamWork(Task[] tasks)
         {
             int created = 0;
             int inProgress = 0;
