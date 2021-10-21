@@ -44,7 +44,7 @@
                 }
                 else
                 {
-                    var currentAge = DateTime.Now - dateOfBirth.AddDays(10);
+                    var currentAge = DateTime.Now - dateOfBirth.AddDays(0);
 
                     return (ushort)((currentAge.Days / 365) - GetLeapYearCorrelation(currentAge));
                 }
