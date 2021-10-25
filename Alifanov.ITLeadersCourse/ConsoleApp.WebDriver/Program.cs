@@ -1,12 +1,17 @@
 ﻿namespace ConsoleApp.WebDriver
 {
-    using static ConsoleApp.CSharpBasics.IO.Output;
+    using System;
+    using ConsoleApp.WebDriver.Drivers;
 
     class Program
     {
         static void Main(string[] args)
         {
-            Out.WriteLine("Hello World!");
+            var url = AppDomain.CurrentDomain.BaseDirectory + @"\Appendix\Lessons\Lesson2_WebDriverIntroduction\index.html";
+
+            WebDriverManager.Driver.Navigate().GoToUrl(url);
+
+            WebDriverManager.DisposeDriver();
         }
     }
 }

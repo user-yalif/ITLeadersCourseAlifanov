@@ -1,0 +1,63 @@
+﻿namespace ConsoleApp.WebDriver
+{
+    using System;
+    using System.Collections.Generic;
+    using ConsoleApp.WebDriver.Drivers;
+    using OpenQA.Selenium;
+    using static ConsoleApp.CSharpBasics.IO.Output;
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var url = AppDomain.CurrentDomain.BaseDirectory + @"\Appendix\Lessons\Lesson2_WebDriverIntroduction\index.html";
+
+            WebDriverManager.Driver.Navigate().GoToUrl(url);
+
+            By headerLocator = By.Id("HeaderTitle");
+
+            IWebElement headerElement = WebDriverManager.Driver.FindElement(headerLocator);
+
+            string headerTitle = headerElement.Text;
+
+            Out.WriteLine(headerTitle);
+
+
+            By listLocator = By.ClassName("List");
+            By listItemLocator = By.Id("list-item");
+
+            IWebElement listElement = WebDriverManager.Driver.FindElement(listLocator);
+            IList<IWebElement> listItems = WebDriverManager.Driver.FindElements(listItemLocator);
+
+            foreach (var item in listItems)
+            {
+                Out.WriteLine(item.Text);
+            }
+
+            foreach (var item in listItems)
+            {
+                var attributeContent = item.GetAttribute("style");
+
+                if (attributeContent.Contains("red", StringComparison.OrdinalIgnoreCase))
+                {
+                    Out.WriteLine($"{item.Text} is red.");
+                }
+
+                if (attributeContent.Contains("circle", StringComparison.OrdinalIgnoreCase))
+                {
+                    Out.WriteLine($"{item.Text} has circle mark.");
+                }
+            }
+
+            By linkLocator = By.LinkText("Dummy link");
+            IWebElement linkElement = WebDriverManager.Driver.FindElement(linkLocator);
+
+            linkElement.Click();
+
+            WebDriverManager.Driver.SwitchTo().Alert().Accept();
+            WebDriverManager.Driver.Navigate().Back();
+
+            WebDriverManager.DisposeDriver();
+        }
+    }
+}
