@@ -9,7 +9,7 @@
     {
         private static IWebDriver driver;
 
-        private static BrowserType BrowerType = BrowserType.Chrome;
+        private static BrowserType BrowerType => BrowserType.Chrome;
 
         private static string PathToDriver => AppDomain.CurrentDomain.BaseDirectory;
 

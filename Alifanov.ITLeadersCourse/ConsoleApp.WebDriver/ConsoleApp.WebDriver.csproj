@@ -23,4 +23,8 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Appendix\Lessons\Lesson3_Forms\" />
+  </ItemGroup>
+
 </Project>

@@ -1,3 +1,5 @@
 ﻿1. Add to your project refferense to Selenium.WebDriver.IEDriver.
 2. Implement logic of IE driver launching
 3. Open the google page in IE browser
+
+Link to Lesson 1 and 2 video: https://drive.google.com/file/d/1-5b5yDUfbEXoe_Xq59NXf74kYQVkzFPf/view?usp=sharing
