@@ -1,0 +1,24 @@
+﻿body{
+    background-color: aqua;
+}
+
+h6{
+    background-color: yellowgreen;
+    color:darkred;
+    font-size:larger;
+}
+
+h1{
+    font-style:italic;
+}
+
+#CityName{
+    color:cornflowerblue;
+}
+
+.CityDistrict{
+    color:teal;
+    font-family: Arial;
+    border: dashed;
+    text-align: right;
+}

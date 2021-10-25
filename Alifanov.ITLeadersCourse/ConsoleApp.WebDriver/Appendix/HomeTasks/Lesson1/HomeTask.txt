@@ -1,0 +1,2 @@
+﻿1. Create a web page using all neccessary kinds of elements and styles (e.g. Stephen King page).
+2. Styles should be placed in a separate file .css
