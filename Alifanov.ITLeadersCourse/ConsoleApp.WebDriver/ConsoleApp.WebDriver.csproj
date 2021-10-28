@@ -21,10 +21,12 @@
     <None Update="Appendix\Lessons\Lesson2_WebDriverIntroduction\index.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Appendix\Lessons\Lesson3_Forms\" />
+    <None Update="Appendix\Lessons\Lesson3_Forms\forms.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Appendix\Lessons\Lesson3_Forms\submit-page.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

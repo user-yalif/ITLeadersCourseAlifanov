@@ -1,0 +1,68 @@
+﻿namespace ConsoleApp.WebDriver
+{
+    using System;
+    using ConsoleApp.WebDriver.Pages.Lesson3Forms;
+
+    class Program : BaseTest
+    {
+        public readonly static string url = AppDomain.CurrentDomain.BaseDirectory
+            + @"\Appendix\Lessons\Lesson3_Forms\forms.html";
+
+        static void Main(string[] args)
+        {
+            string userName = "John Smith";
+            string email = "JohnSmith@gmail.com";
+            string expectedMessage = "User data was submitted successfully!";
+
+            try
+            {
+                FormPage formPage = NavigateTo<FormPage>(url);
+                
+                formPage.InputName(userName)
+                    .InputEmail(email);
+
+                var submitPage = formPage.ClickSubmitButton();
+                var submitMessage = submitPage.GetSubmitMessage();
+
+                AssertThatSubmitMessageIsCorrect(expectedMessage, submitMessage);
+
+                formPage = submitPage.ReturnToPriviousPage();
+
+                formPage.ClickResetButton();
+
+                string actualName = formPage.GetName();
+                string actualEmail = formPage.GetEmail();
+
+                AssertThatNameAndEmailAreCorrect("", actualName, "", actualEmail);
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                DisposeTest();
+            }
+        }
+
+        private static void AssertThatNameAndEmailAreCorrect(string expectedName, string actualName, string expectedEmail, string actualEmail)
+        {
+            if (expectedName != actualName)
+            {
+                throw new Exception($"Expected name: {expectedName}; Actual name: {actualName}");
+            }
+
+            if (expectedEmail != actualEmail)
+            {
+                throw new Exception($"Expected email: {expectedEmail}; Actual email: {actualEmail}");
+            }
+        }
+
+        private static void AssertThatSubmitMessageIsCorrect(string expectedMessage, string actualMessage)
+        {
+            if (expectedMessage != actualMessage)
+            {
+                throw new Exception($"Actual message {actualMessage} is not equal to expected one {expectedMessage}");
+            }
+        }
+    }
+}

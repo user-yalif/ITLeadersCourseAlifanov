@@ -1,1 +1,8 @@
-﻿
+﻿1. Complete class FormPage with necessary properties so that you have locators to navigate and perform actions on
+	a. Education completed dropdown
+	b. Reset button near Education completed dropdown
+2. Implement a method that will perform chosing an option from Education completed dropdown and insert it in its text input field.
+3. In Program class check out that the chosen option is what you intended to choose in a separate method.
+4. Clear Education completed dropdown input and check it out that data was cleared.
+
+Link to Lesson 3 video: https://drive.google.com/file/d/1-6nQ8KhKEucIWyeKwp2Lcl70ZgYGumae/view?usp=sharing

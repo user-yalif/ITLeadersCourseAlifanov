@@ -1,17 +1,25 @@
 ﻿namespace ConsoleApp.WebDriver
 {
     using System;
-    using ConsoleApp.WebDriver.Drivers;
 
-    class Program
+    class Program : BaseTest
     {
+        public readonly static string url = AppDomain.CurrentDomain.BaseDirectory
+            + @"\Appendix\Lessons\Lesson3_Forms\forms.html";
+
         static void Main(string[] args)
         {
-            var url = AppDomain.CurrentDomain.BaseDirectory + @"\Appendix\Lessons\Lesson2_WebDriverIntroduction\index.html";
+            try
+            {
 
-            WebDriverManager.Driver.Navigate().GoToUrl(url);
-
-            WebDriverManager.DisposeDriver();
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                DisposeTest();
+            }
         }
     }
 }
