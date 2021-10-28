@@ -9,7 +9,7 @@
     {
         private static IWebDriver driver;
 
-        private static BrowserType BrowerType => BrowserType.Chrome;
+        private static BrowserType BrowserType => BrowserType.Chrome;
 
         private static string PathToDriver => AppDomain.CurrentDomain.BaseDirectory;
 
@@ -20,7 +20,7 @@
                 if (driver == null)
                 {
                     driver = new DriverFactory()
-                        .GetDriver(BrowerType)
+                        .GetDriver(BrowserType)
                         .Setup(PathToDriver);
                 }
 

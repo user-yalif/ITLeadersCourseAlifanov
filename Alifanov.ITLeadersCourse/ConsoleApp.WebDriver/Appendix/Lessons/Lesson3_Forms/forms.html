@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Form</title>
+    <style>
+        ol{
+            list-style-type:none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mailing List Signup</h1>
+
+    <form action="submit-page.html">
+        <fieldset>
+            <legend>Join our email list</legend>
+            <p>Get news about the band such as tour dates and special MP3 releases sent to your own in-box.</p>
+            <ol>
+                <li>
+                    <label for="firstLast">Name:</label>
+                    <input type="text" name="username" id="firstlast" placeholder="user name">
+                </li>
+                <li>
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" id="email" placeholder="email">
+                </li>
+            </ol>
+            <input type="submit" value="Submit">
+            <input type="reset">
+        </fieldset>
+    </form>
+
+    <form>
+        <p>
+            Education completed: <input type="text" list="edulevel" name="education">
+            <datalist id="edulevel">
+                <option value="High School">
+                <option value="Bachelors Degree">
+                <option value="Masters Degree">
+                <option value="PhD">
+            </datalist>
+            <input type="reset">
+    </form>
+</body>
+</html>
