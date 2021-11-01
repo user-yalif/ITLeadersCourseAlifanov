@@ -5,7 +5,7 @@
     class Program : BaseTest
     {
         public readonly static string url = AppDomain.CurrentDomain.BaseDirectory
-            + @"\Appendix\Lessons\Lesson3_Forms\forms.html";
+            + @"\Appendix\Lessons\Lesson4_Select\select.html";
 
         static void Main(string[] args)
         {
