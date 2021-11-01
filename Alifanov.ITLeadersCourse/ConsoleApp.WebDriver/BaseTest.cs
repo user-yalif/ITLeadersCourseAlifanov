@@ -6,14 +6,21 @@
 
     public class BaseTest
     {
-        public static TPage NavigateTo<TPage>(string url) where TPage : BasePage, new()
+        protected static FormPage NavigateTo(string uri)
+        {
+            WebDriverManager.Driver.Navigate().GoToUrl(uri);
+
+            return new FormPage();
+        }
+
+        protected static TPage NavigateTo<TPage>(string url) where TPage : BasePage, new()
         {
             WebDriverManager.Driver.Navigate().GoToUrl(url);
 
             return new TPage();
         }
 
-        public static void DisposeTest()
+        protected static void DisposeTest()
         {
             WebDriverManager.DisposeDriver();
         }
