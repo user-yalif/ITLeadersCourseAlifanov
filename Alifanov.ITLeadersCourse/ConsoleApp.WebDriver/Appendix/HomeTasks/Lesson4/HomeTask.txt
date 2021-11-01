@@ -17,4 +17,4 @@ To acheave that:
 		DeselectAllOptionsInMultipleSelect
 	3. In Program class implement AssertThatSelectedOptionsAreEqual which will take two lists as its parameters
 
-Link to Lesson 4 video: 
+Link to Lesson 4 video: https://drive.google.com/file/d/1-C8rrzon4ukngreBen-7Eoi2XIYQ-RXe/view?usp=sharing
