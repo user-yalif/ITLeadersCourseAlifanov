@@ -1,5 +1,6 @@
 ﻿namespace ConsoleApp.WebDriver.Pages
 {
+    using System.Collections.Generic;
     using ConsoleApp.WebDriver.Drivers;
     using OpenQA.Selenium;
 
@@ -15,6 +16,16 @@
         protected void NavigateBack()
         {
             Driver.Navigate().Back();
+        }
+
+        protected IWebElement FindElement(By locator)
+        {
+            return Driver.FindElement(locator);
+        }
+
+        protected IList<IWebElement> FindElements(By locator)
+        {
+            return Driver.FindElements(locator);
         }
     }
 }

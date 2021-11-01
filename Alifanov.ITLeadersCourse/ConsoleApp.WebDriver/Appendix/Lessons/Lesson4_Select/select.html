@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Select element</title>
+    <style>
+        body{
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>General Select</h2>
+        <div style="display:block; margin-bottom: 10px">
+            <label for="namesList">Choose a name:</label>
+            <select name="Names" id="namesList">
+                <option>Choose a name...</option>
+                <option value="john">John</option>
+                <option value="mike" id="nameMike">Mike</option>
+                <option value="jane">Jane</option>
+                <option value="scott">Scott</option>
+                <option value="michel">Michel</option>
+            </select>
+        </div>
+    </div>
+
+    <div>
+        <h2>Grouped select</h2>
+        <div style="display:block; margin-bottom: 10px">
+            <label for="groupedNames">Choose a name from the group:</label>
+            <select name="GroupedNames" id="groupedNames">
+                <option>Choose a name from the group...</option>
+                <optgroup label="Mens">
+                    <option value="john">John</option>
+                    <option value="mike">Mike</option>
+                    <option value="scott">Scott</option>
+                </optgroup>
+                <optgroup label="Womens">
+                    <option value="michel">Michel</option>
+                    <option value="jane">Jane</option>
+                </optgroup>
+            </select>
+        </div>
+    </div>
+
+    <div>
+        <h2>Multiple select</h2>
+        <div>
+            <label for="multipleNames">Choose multiple names:</label>
+            <select name="multipleNames" id="multipleNames" multiple>
+                <option value="john">John</option>
+                <option value="mike">Mike</option>
+                <option value="jane">Jane</option>
+                <option value="scott">Scott</option>
+                <option value="michel">Michel</option>
+            </select>
+        </div>
+    </div>
+</body>
+</html>

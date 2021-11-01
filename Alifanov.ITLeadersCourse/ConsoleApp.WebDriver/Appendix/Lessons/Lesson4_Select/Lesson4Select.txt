@@ -1,1 +1,46 @@
-﻿
+﻿namespace ConsoleApp.WebDriver
+{
+    using System;
+    using ConsoleApp.WebDriver.Pages.Lesson4Select;
+    using static ConsoleApp.CSharpBasics.IO.Output;
+
+    class Program : BaseTest
+    {
+        public readonly static string url = AppDomain.CurrentDomain.BaseDirectory
+            + @"\Appendix\Lessons\Lesson4_Select\select.html";
+
+        static void Main(string[] args)
+        {
+            try
+            {
+                SelectPage selectPage = NavigateTo<SelectPage>(url);
+
+                var optionToBeSelected = "Jane";
+
+                //selectPage.SelectNameInGeneralSelect(optionToBeSelected);
+                //var actualOption = selectPage.GetSelectedNameInGeneralSelect();
+
+                //Out.WriteLine($"Expected option: {optionToBeSelected}; Actual option: {actualOption}");
+
+                selectPage.SelectOptionInGeneralSelect(optionToBeSelected);
+                var actualOption = selectPage.GetSelectedOptionInGeneralSelect();
+
+                Out.WriteLine($"Expected option: {optionToBeSelected}; Actual option: {actualOption}");
+
+                optionToBeSelected = "John";
+
+                selectPage.SelectOptionInGroupedSelect(optionToBeSelected);
+                actualOption = selectPage.GetSelectedOptionInGroupedSelect();
+
+                Out.WriteLine($"Expected option: {optionToBeSelected}; Actual option: {actualOption}");
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                DisposeTest();
+            }
+        }
+    }
+}

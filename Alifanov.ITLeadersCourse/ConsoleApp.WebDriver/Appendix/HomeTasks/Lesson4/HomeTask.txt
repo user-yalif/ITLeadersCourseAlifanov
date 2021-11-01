@@ -1,1 +1,18 @@
-﻿
+﻿Link to CSS selector cheetsheet: https://devhints.io/css
+Link to XPath cheetsheet: https://devhints.io/xpath
+
+1. In Multiple select make a selection of 3 options.
+2. Get all selected options and check them out if they are all as expected.
+3. Deselect one option in the multiple select.
+4. Get left options form Multiple select and check them if they are as expected.
+5. Deselect all options in the multiple select.
+6. Check out that all options were deselected.
+
+To acheave that:
+	1. Declare MultipleSelect property
+	2. Implement the following methods which will allow you to work with the multiple select
+		SelectOptionsInMultipleSelectByText -> it would be great to think about chosing several options at onse
+		GetSelectedOptionsFromMultipleSelect
+		DeselectOptionsInMultipleSelect -> think about how deselect several options at onse
+		DeselectAllOptionsInMultipleSelect
+	3. In Program class implement AssertThatSelectedOptionsAreEqual which will take two lists as its parameters
