@@ -12,3 +12,5 @@
 11. Repeat step 3, 4
 12. Input empty string
 13. Repeat step 6, 7
+
+Link to Lesson 5 video: https://drive.google.com/file/d/1-Nge2ZKYYduT1JBa5On464duT4SbKts2/view?usp=sharing
