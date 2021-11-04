@@ -1,0 +1,51 @@
+﻿namespace ConsoleApp.WebDriver
+{
+    using System;
+    using ConsoleApp.WebDriver.Pages.Lesson5Modals;
+    using static ConsoleApp.CSharpBasics.IO.Output;
+
+    class Program : BaseTest
+    {
+        public readonly static string url = AppDomain.CurrentDomain.BaseDirectory
+            + @"\Appendix\Lessons\Lesson5_Modals\modals.html";
+
+        static void Main(string[] args)
+        {
+            try
+            {
+                ModalsPage modalsPage = NavigateTo<ModalsPage>(url);
+
+                var expectedUserName = "John Smith";
+
+                modalsPage.SubmitUserName(expectedUserName);
+
+                var alertMessage = modalsPage.AcceptAlert();
+                var actualUserName = modalsPage.GetUserNameSubmittedMessage().Split(":")[1].TrimStart();
+
+                var mes = string.Format("Alert message: {0}", alertMessage);
+                Out.WriteLine(mes);
+                Out.WriteLine($"Expected name: {expectedUserName}; Actual name: {actualUserName}");
+
+                var expectedNickName = "Samthing";
+
+                /*alertMessage = */
+                modalsPage.SubmitNickName(expectedNickName)
+                    //.AcceptAlert();
+                    .DismissAlert();
+
+                var submittedMessage = modalsPage.GetNickNameSubmittedMessage();
+
+                mes = string.Format("Alert message: {0}", alertMessage);
+                Out.WriteLine(mes);
+                Out.WriteLine($"Nick Name {expectedNickName} was {(submittedMessage.Contains("submitted") ? "SUBMITTED" : "CANCELED")}");
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                DisposeTest();
+            }
+        }
+    }
+}

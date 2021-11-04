@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Modal Windows</title>
+    <script>
+        function alertAction() {
+            var userName = document.getElementById("userName").value;
+
+            if (userName != "" && userName != null) {
+                alert("Confirm your user name: " + userName);
+                printOutput("submittedUserName", "User Name submitted: " + userName);
+            } else {
+                printOutput("submittedUserName", "Please, input your user name!");
+            }
+        }
+
+        function confirmationAction() {
+            var nickName = document.getElementById("nickName").value;
+
+            if (nickName != "" && nickName != null) {
+                var isOk = confirm("Confirm your Nick Name: " + nickName);
+
+                if (isOk) {
+                    printOutput("submittedNickName", "Nick name submitted: " + nickName);
+                } else {
+                    printOutput("submittedNickName", "Submission canceled: " + nickName);
+                }
+            } else {
+                printOutput("submittedNickName", "Please, input your nick name!");
+            }
+        }
+
+        function promtAction() {
+            var email = prompt("Please enter your email: ", "JohnSmith@gmail.com");
+
+            if (email != null && email != "") {
+                printOutput("submittedEmail", "Email submitted: " + email);
+            } else if (email == "") {
+                printOutput("submittedEmail", "Please, input your email!");
+            } else if (email == null) {
+                printOutput("submittedEmail", "Email submission canceled!");
+            }
+        }
+
+        function printOutput(id, message) {
+            document.getElementById(id).innerHTML = message;
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <h2>Alert Window</h2>
+        <div>
+            <label for="userName">Input your User Name:</label>
+            <input type="text" id="userName" name="username" placeholder="User Name">
+            <div>
+                <input type="button" value="Submit User Name" onclick="alertAction()" />
+            </div>
+            <p id="submittedUserName"></p>
+        </div>
+    </div>
+    <div>
+        <h2>Confirmation Window</h2>
+        <div>
+            <label for="nickName">Input your Nick Name:</label>
+            <input type="text" id="nickName" name="nickname" placeholder="Nick Name">
+            <div>
+                <input type="button" value="Submit Nick Name" onclick="confirmationAction()" />
+            </div>
+        </div>
+        <p id="submittedNickName"></p>
+    </div>
+    <div>
+        <h2>Promt Window</h2>
+        <div>
+            <input type="button" value="Submit Email" onclick="promtAction()" />
+            <p id="submittedEmail"></p>
+        </div>
+    </div>
+</body>
+</html>

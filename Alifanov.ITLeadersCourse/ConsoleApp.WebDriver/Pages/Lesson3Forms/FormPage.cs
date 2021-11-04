@@ -14,11 +14,11 @@
 
         private IWebElement ResetButton => Driver.FindElement(By.CssSelector("fieldset input[type='reset']"));
 
-        private IWebElement EducationComplitedInput => Driver.FindElement(By.CssSelector("input[name='education']"));
+        private IWebElement EducationCompletedInput => Driver.FindElement(By.CssSelector("input[name='education']"));
 
-        private IList<IWebElement> EducationComplitedOptions => Driver.FindElements(By.CssSelector("datalist#edulevel option"));
+        private IList<IWebElement> EducationCompletedOptions => Driver.FindElements(By.CssSelector("datalist#edulevel option"));
 
-        private IWebElement EducationComplitedResetButton => Driver.FindElement(By.CssSelector("form p input[type='reset']"));
+        private IWebElement EducationCompletedResetButton => Driver.FindElement(By.CssSelector("form p input[type='reset']"));
 
         public FormPage InputName(string name)
         {
@@ -60,18 +60,18 @@
 
         public void ChooseEducationCompletedOption(string option, bool moveFocus = true)
         {
-            foreach (var opt in EducationComplitedOptions)
+            foreach (var opt in EducationCompletedOptions)
             {
                 var optionValue = opt.GetAttribute("value");
 
                 if (option.Equals(optionValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    EducationComplitedInput.Clear();
-                    EducationComplitedInput.SendKeys(optionValue);
+                    EducationCompletedInput.Clear();
+                    EducationCompletedInput.SendKeys(optionValue);
 
                     if (moveFocus)
                     {
-                        EducationComplitedInput.SendKeys(Keys.Tab); 
+                        EducationCompletedInput.SendKeys(Keys.Tab); 
                     }
                 }
             }
