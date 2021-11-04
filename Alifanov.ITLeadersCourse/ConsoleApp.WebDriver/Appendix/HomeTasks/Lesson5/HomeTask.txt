@@ -1,0 +1,14 @@
+﻿1. On the ModalsPage declare all neccessary locators for actions with Promt Window
+2. Implement all neccessary methods for actions with Promt Window
+3. Click Submit Email button
+4. Enter email in Promt modal (tip: email input method should be implemented in AlertHelper class
+   and wraped in overloaded method AcceptAlert(string inupt) in ModalsPage class)
+5. Accept the Promt
+6. Get promted message and compare it with expected one
+7. Write result to console
+8. Repeat step 3, 4
+9. Dismiss Promt modal
+10. Repeat step 6, 7
+11. Repeat step 3, 4
+12. Input empty string
+13. Repeat step 6, 7

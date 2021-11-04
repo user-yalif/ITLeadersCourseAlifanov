@@ -31,6 +31,9 @@
     <None Update="Appendix\Lessons\Lesson4_Select\select.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Appendix\Lessons\Lesson5_Modals\modals.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
