@@ -14,3 +14,5 @@
 11. Get New Browser Tab title and compare it with expected "Automation Practice - Ultimate QA"
 12. Switch to AdditionalWindows window
 13. Close all other windows exept current
+
+Link to Lesson 6 video: https://drive.google.com/file/d/1-V8NsvVQZCiqgL7ggPJWcT9BYmJDFHDd/view?usp=sharing
