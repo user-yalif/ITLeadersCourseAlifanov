@@ -1,1 +1,61 @@
-﻿
+﻿namespace ConsoleApp.WebDriver
+{
+    using System;
+    using ConsoleApp.WebDriver.Helpers;
+    using ConsoleApp.WebDriver.Pages.Lesson6AdditionalWindows;
+    using static AppSettings.SettingsCongfigurator;
+    using static ConsoleApp.CSharpBasics.IO.Output;
+
+    class Program : BaseTest
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+                var firstWindowPage = NavigateTo<FirstWindowPage>(AppDomain.CurrentDomain.BaseDirectory + Settings.Urls.UrlLesson6);
+                var firstWindowHandle = WindowHelper.AddWindow();
+                // add 1 handle
+                // get first window handle
+                // switch to new window
+                var secondWindowPage = firstWindowPage.ClickSecondPageLink();
+                var secondWindowHandle = WindowHelper.AddWindow();
+                WindowHelper.SwitchTo(secondWindowHandle);
+
+                var thirdWindowPage = secondWindowPage.ClickThirdPageLink();
+                var thirdWindowHandle = WindowHelper.AddWindow();
+                WindowHelper.SwitchTo(thirdWindowHandle);
+
+                var message = thirdWindowPage.GetMessage();
+
+                Out.WriteLine($"Message: {message}");
+
+                WindowHelper.SwitchTo(secondWindowHandle);
+                WindowHelper.SwitchTo(firstWindowHandle);
+                WindowHelper.SwitchTo(thirdWindowHandle);
+
+                WindowHelper.CloseCurrent();
+                WindowHelper.SwitchTo(secondWindowHandle);
+
+                secondWindowPage.ClickThirdPageLink();
+                thirdWindowHandle = WindowHelper.AddWindow();
+                WindowHelper.SwitchTo(thirdWindowHandle);
+
+                WindowHelper.CloseAllBut(firstWindowHandle);
+
+                firstWindowPage.ClickSecondPageLink();
+                secondWindowHandle = WindowHelper.AddWindow();
+                WindowHelper.SwitchTo(secondWindowHandle);
+
+                WindowHelper.CloseAllBut(secondWindowHandle);
+            }
+            catch (Exception)
+            {
+
+            }
+            finally
+            {
+                DisposeTest();
+            }
+        }
+    }
+}
