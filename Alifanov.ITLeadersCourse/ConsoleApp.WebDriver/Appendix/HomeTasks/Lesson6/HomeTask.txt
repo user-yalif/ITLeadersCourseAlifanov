@@ -1,0 +1,16 @@
+﻿I. Implement AppSettings logic
+
+1. Declare class AdditionalWindowsPage
+2. Declare all necessary locators to handle with buttons
+3. Go to AdditionalWindows page
+4. Open New browser window by clicking on New Browser Window button
+5. Get New browser window url compare it with expected "https://ultimateqa.com/automation"
+6. Switch to AdditionalWindows window
+7. Open New message window by clicking on New Message Window button
+8. Get New message window's text and compare it with expected
+	"Knowledge increases by sharing but not by saving. Please share this website with your friends and in your organization."
+9. Switch to AdditionalWindows window
+10. Open New browser tab by clicking on New Browser Tab button
+11. Get New Browser Tab title and compare it with expected "Automation Practice - Ultimate QA"
+12. Switch to AdditionalWindows window
+13. Close all other windows exept current

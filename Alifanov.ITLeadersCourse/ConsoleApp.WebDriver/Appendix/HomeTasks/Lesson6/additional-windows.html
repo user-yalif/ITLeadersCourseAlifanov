@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Additional Windows</title>
+    <script type="text/javascript">
+        function newBrwWin() {
+            window.open("https://ultimateqa.com/automation", "_blank", "toolbar=yes, scrollbars=yes, resizable=yes, top=500, left=500, width=400, height=400");
+        }
+
+        function newMsgWin() {
+            var myWindow = window.open("", "MsgWindow", "width=500,height=200");
+            myWindow.document.write("Knowledge increases by sharing but not by saving. Please share this website with your friends and in your organization.");
+        }
+
+        function newBrwTab() {
+            window.open("https://ultimateqa.com/automation");
+        }
+    </script>
+</head>
+<body>
+    <div id="content" class="content" role="main">
+        <h1>Automation Practice Switch Windows</h1>
+        <h2>Browser Windows</h2>
+        <div>
+            <p>
+                <button id="button1" onclick="newBrwWin()">New Browser Window</button>
+            </p>
+        </div>
+        <div>
+            <p>
+                <button onclick="newMsgWin()">New Message Window</button>
+            </p>
+        </div>
+        <div>
+            <p>
+                <button onclick="newBrwTab()">New Browser Tab</button>
+            <p>
+        </div>
+    </div>
+</body>
+</html>
