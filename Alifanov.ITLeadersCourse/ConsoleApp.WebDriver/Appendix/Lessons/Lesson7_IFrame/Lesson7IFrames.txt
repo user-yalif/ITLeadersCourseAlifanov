@@ -1,0 +1,39 @@
+﻿namespace ConsoleApp.WebDriver
+{
+    using System;
+    using ConsoleApp.WebDriver.Pages.Lesson7IFrame;
+    using static ConsoleApp.CSharpBasics.IO.Output;
+    using static ConsoleApp.WebDriver.AppSettings.SettingsCongfigurator;
+
+    class Program : BaseTest
+    {
+        private static readonly string url = AppDomain.CurrentDomain.BaseDirectory + Settings.Urls.UrlLesson7;
+
+        static void Main(string[] args)
+        {
+            try
+            {
+                IFramePage iframePage = NavigateTo<IFramePage>(url);
+
+                FirstFramePage firstFramePage = iframePage.SwitchToFirstFrame();
+
+                string name = firstFramePage.GetNameTextField().Split(": ")[1];
+
+                Out.WriteLine($"Name: {name}");
+
+                string header = iframePage.SwitchToSelf()
+                    .GetIFrameHeader();
+
+                Out.WriteLine($"Header: {header}");
+            }
+            catch (Exception)
+            {
+
+            }
+            finally
+            {
+                DisposeTest();
+            }
+        }
+    }
+}

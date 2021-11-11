@@ -11,6 +11,8 @@
         public class UrlsModel
         {
             public string UrlLesson6 { get; set; }
+
+            public string UrlLesson7 { get; set; }
         }
     }
 }

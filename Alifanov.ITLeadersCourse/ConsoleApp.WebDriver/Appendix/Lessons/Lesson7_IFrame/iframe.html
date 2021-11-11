@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>IFrame Page</title>
+    <script>
+        function checkUserName() {
+            var userName = document.getElementById("userName").value;
+
+            if (userName == "John Smith") {
+                printOutput("output", "Welcome: " + userName);
+            } else {
+                printOutput("output", "Input " + userName + " is not correct!!!");
+            }
+        }
+
+        function printOutput(id, message) {
+            document.getElementById(id).innerHTML = message;
+        }
+    </script>
+</head>
+<body id="frame2">
+    <h2 id="pageHeader">IFrame Examples</h2>
+
+    <div id="frame1Wrapper">
+        <iframe id="frame1" src="iframe1.html" width="300" height="150"></iframe>
+    </div>
+    <div id="frame2Wrapper">
+        <iframe id="frame2" src="iframe2.html" width="500" height="250"></iframe>
+    </div>
+    <div>
+        <label for="userName">Input User Name:</label>
+        <input id="userName" type="text" name="username" placeholder="Input User Name">
+        <div>
+            <input id="checkUserName" type="button" value="Check User Name" onclick="checkUserName()" />
+        </div>
+        <div>
+            <p>
+                <span>
+                    Result:
+                    <span id="output"></span>
+                </span>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
