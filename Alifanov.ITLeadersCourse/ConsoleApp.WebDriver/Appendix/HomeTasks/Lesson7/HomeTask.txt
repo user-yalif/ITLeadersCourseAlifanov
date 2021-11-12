@@ -8,3 +8,5 @@
 7. Input Full name into input (in format John Smith)
 8. Click Check button
 9. Get result and compare it with your one
+
+Link to Lesson 6 video: https://drive.google.com/file/d/1-kJP76SSKih4zEP9TeYqqEu0fB_WJASb/view?usp=sharing
