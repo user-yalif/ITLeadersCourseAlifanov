@@ -11,7 +11,7 @@
 	"Knowledge increases by sharing but not by saving. Please share this website with your friends and in your organization."
 9. Switch to AdditionalWindows window
 10. Open New browser tab by clicking on New Browser Tab button
-11. Get New Browser Tab title and compare it with expected "Automation Practice - Ultimate QA"
+11. Get New Browser Tab title and compare it with expected "Automation Practice | Ultimate QA"
 12. Switch to AdditionalWindows window
 13. Close all other windows exept current
 
