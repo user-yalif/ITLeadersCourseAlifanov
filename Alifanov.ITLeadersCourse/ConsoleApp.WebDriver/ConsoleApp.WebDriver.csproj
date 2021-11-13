@@ -16,7 +16,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Appendix\HomeTasks\Lesson6\additional-windows.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Appendix\HomeTasks\Lesson6\HomeTask.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Appendix\HomeTasks\Lesson6\new-message-page.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Appendix\Lessons\Lesson1_HtmlCssIntroduction\index.html">
