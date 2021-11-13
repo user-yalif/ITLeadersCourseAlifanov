@@ -1,17 +1,16 @@
-﻿<!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+﻿<!doctype html>
+<html>
 <head>
-    <meta charset="utf-8" />
-    <title>Additional Windows</title>
+    <title>Windows</title>
     <script type="text/javascript">
         function newBrwWin() {
             window.open("https://ultimateqa.com/automation", "_blank", "toolbar=yes, scrollbars=yes, resizable=yes, top=500, left=500, width=400, height=400");
         }
 
         function newMsgWin() {
-            var myWindow = window.open("", "MsgWindow", "width=500,height=200");
-            myWindow.document.write("Knowledge increases by sharing but not by saving. Please share this website with your friends and in your organization.");
+            var path = location.pathname.substr(0, location.pathname.lastIndexOf("/") + 1) + "new-message-window.html";
+
+            open(path, '_blank', 'width=500,height=200');
         }
 
         function newBrwTab() {
