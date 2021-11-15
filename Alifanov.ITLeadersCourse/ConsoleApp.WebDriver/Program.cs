@@ -5,7 +5,7 @@
 
     class Program : BaseTest
     {
-        private static readonly string url = AppDomain.CurrentDomain.BaseDirectory + Settings.Urls.UrlLesson7;
+        private static string url = AppDomain.CurrentDomain.BaseDirectory + Settings.Urls.Url1Lesson8;
 
         static void Main(string[] args)
         {

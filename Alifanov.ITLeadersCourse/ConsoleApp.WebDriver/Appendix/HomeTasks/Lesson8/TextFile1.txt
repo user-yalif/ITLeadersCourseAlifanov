@@ -1,0 +1,4 @@
+﻿1. Add to settings this url https://jqueryui.com/selectable/ and go to it.
+2. With the help of the Actions class perform selecting of every odd option in the list
+3. Get selected options names
+4. Print them in console

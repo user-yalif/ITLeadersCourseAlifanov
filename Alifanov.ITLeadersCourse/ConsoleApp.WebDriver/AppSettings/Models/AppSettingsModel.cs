@@ -13,6 +13,10 @@
             public string UrlLesson6 { get; set; }
 
             public string UrlLesson7 { get; set; }
+
+            public string Url1Lesson8 { get; set; }
+
+            public string Url2Lesson8 { get; set; }
         }
     }
 }

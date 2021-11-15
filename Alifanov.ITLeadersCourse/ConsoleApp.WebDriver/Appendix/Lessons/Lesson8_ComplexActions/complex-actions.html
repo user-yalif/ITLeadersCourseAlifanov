@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Complex Actioins</title>
+    <script>
+        function onDoubleClick() {
+            document.getElementById("doubleClickMessage").innerHTML = "You clicked me twice!";
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <h2>Complex Actions</h2>
+        <input type="button" value="Click me twice" id="clickTwiceButton" ondblclick="onDoubleClick()" />
+        <p id="doubleClickMessage"></p>
+    </div>
+</body>
+</html>
