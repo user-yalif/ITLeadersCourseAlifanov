@@ -1,0 +1,47 @@
+﻿namespace ConsoleApp.WebDriver
+{
+    using System;
+    using ConsoleApp.WebDriver.Pages.Lesson8ComplexActions;
+    using static ConsoleApp.CSharpBasics.IO.Output;
+    using static ConsoleApp.WebDriver.AppSettings.SettingsCongfigurator;
+
+    class Program : BaseTest
+    {
+        private static string url = AppDomain.CurrentDomain.BaseDirectory + Settings.Urls.Url1Lesson8;
+
+        static void Main(string[] args)
+        {
+            try
+            {
+                var complexActionsPage = NavigateTo<ComplexActionsPage>(url);
+
+                var message = complexActionsPage.DoubleClickOnClickMeTwiceButton()
+                    .GetMessage();
+
+                Out.WriteLine($"Message: {message}");
+
+                url = Settings.Urls.Url2Lesson8;
+
+                var droppablePage = NavigateTo<DroppablePage>(url);
+                droppablePage.SwitchToDemoFrame();
+
+                message = string.Empty;
+
+                message = droppablePage.DragAndDropDraggableElement()
+                    .GetMessage();
+
+                droppablePage.SwitchToSelf();
+
+                Out.WriteLine($"Message: {message}");
+            }
+            catch (Exception)
+            {
+
+            }
+            finally
+            {
+                DisposeTest();
+            }
+        }
+    }
+}
