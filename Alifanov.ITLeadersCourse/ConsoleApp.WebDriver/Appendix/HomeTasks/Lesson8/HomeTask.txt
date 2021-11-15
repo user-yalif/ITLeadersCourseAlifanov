@@ -2,3 +2,5 @@
 2. With the help of the Actions class perform selecting of every odd option in the list
 3. Get selected options names
 4. Print them in console
+
+Link to Lesson 8 video: https://drive.google.com/file/d/1-kVTOkIvkJ3WbR3F85erF_VrGKn0OW2P/view?usp=sharing
