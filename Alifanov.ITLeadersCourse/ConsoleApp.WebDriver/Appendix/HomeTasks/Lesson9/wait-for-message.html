@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Get tricky message</title>
+    <style>
+        #launchButton, #messageButton {
+            font-family: Arial;
+            font-size: x-large;
+            border: outset;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        var buttonId = "messageButton";
+        var waitToBeEnabled = 5000;
+        var waitToBeDisabled = 1000;
+
+        function manipulateButton() {
+            setTimeout(function () {
+                enableButton(buttonId);
+
+                setTimeout(function () {
+                    disableButton(buttonId);
+                }, waitToBeDisabled);
+            }, waitToBeEnabled);
+        }
+
+        function enableButton(id) {
+            document.getElementById(id).disabled = false;
+        }
+
+        function disableButton(id) {
+            document.getElementById(id).disabled = true;
+        }
+
+        function showMessage(id, message) {
+            var newElement = document.createElement("h1");
+            newElement.setAttribute("id", id);
+            newElement.innerHTML = message;
+            document.getElementById("messageWrapper").appendChild(newElement);
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <div style="margin-bottom:1%">
+            <input id="launchButton" value="Launch Code Execution" type="button" onclick="manipulateButton()" />
+        </div>
+        <div>
+            <input id="messageButton" type="button" value="Try to Click" onclick="showMessage('message', 'I\'m here!')" disabled />
+        </div>
+    </div>
+    <div id="messageWrapper"></div>
+</body>
+</html>

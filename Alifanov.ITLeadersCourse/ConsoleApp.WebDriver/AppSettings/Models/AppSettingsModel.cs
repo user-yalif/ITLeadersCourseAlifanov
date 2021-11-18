@@ -17,6 +17,8 @@
             public string Url1Lesson8 { get; set; }
 
             public string Url2Lesson8 { get; set; }
+
+            public string UrlLesson9 { get; set; }
         }
     }
 }
