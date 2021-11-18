@@ -5,3 +5,5 @@
 5. Get message
 
 Use WebDriverWait for achieve the result!!!
+
+Link to Lesson 9 video: https://drive.google.com/file/d/1-mmgJRwjc2ottYjyzlc8QFtFBvFnEVsV/view?usp=sharing
