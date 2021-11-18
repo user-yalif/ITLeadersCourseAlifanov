@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>WebDriverWait</title>
+    <script>
+        var messageId = "message";
+        var waitToAppear = 3000;
+        var waitToDisappear = 2000;
+
+        function waitMessage() {
+            setTimeout(function () {
+                showMessage(messageId, "Get me! I've appeared!");
+
+                setTimeout(function () {
+                    removeMessage(messageId);
+                }, waitToDisappear);
+            }, waitToAppear);
+        }
+
+        function showMessage(id, message) {
+            var newElement = document.createElement("h1");
+            newElement.setAttribute("id", id);
+            newElement.innerHTML = message;
+            document.getElementById("messageWrapper").appendChild(newElement);
+        }
+
+        function removeMessage(id) {
+            var elementToBeRemoved = document.getElementById(id);
+
+            elementToBeRemoved.parentNode.removeChild(elementToBeRemoved);
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <h3>Click button and wait until message is displayed</h3>
+        <input type="button" value="Click and Wait" id="waitButton" onclick="waitMessage()" />
+    </div>
+    <div id="messageWrapper"></div>
+</body>
+</html>
