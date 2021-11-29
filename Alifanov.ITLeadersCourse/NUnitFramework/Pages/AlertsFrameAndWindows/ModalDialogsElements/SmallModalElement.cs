@@ -1,4 +1,4 @@
-﻿namespace NUnitFramework.Pages.AlertsFrameAndWindows.ModalDialogsElement
+﻿namespace NUnitFramework.Pages.AlertsFrameAndWindows.ModalDialogsElements
 {
     using NUnitFramework.Logging;
     using OpenQA.Selenium;
@@ -24,7 +24,7 @@
             return Header.Text;
         }
 
-        public string GetDialogMessage()
+        public string GetMessage()
         {
             Logger.Log.Info("Try to get Small Modal's message");
             return Body.Text;

@@ -19,7 +19,7 @@
             var smallModal = modalDialogsPage.ClickOnSmallModalButton();
 
             var actualHeader = smallModal.GetHeader();
-            var actualMessage = smallModal.GetDialogMessage();
+            var actualMessage = smallModal.GetMessage();
 
             smallModal.CloseDialog();
 

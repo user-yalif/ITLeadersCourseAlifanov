@@ -6,12 +6,12 @@
 
     public class LoggerFactory : ILoggerFactory
     {
-        public override ILoggerInstance GetLogger(LoggerType logger)
+        public override ILoggerInstance GetLogger(LoggerType loggerType)
         {
-            return logger switch
+            return loggerType switch
             {
                 LoggerType.Log4Net => new Log4NetInstance(),
-                _ => throw new PlatformNotSupportedException($"{logger} type is not supported.")
+                _ => throw new PlatformNotSupportedException($"{loggerType} is not supported.")
             };
         }
     }
