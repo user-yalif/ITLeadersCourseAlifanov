@@ -8,7 +8,7 @@
 
     public static class Waiter
     {
-        private static TimeSpan DefaultTimeout { get; } = TimeSpan.FromSeconds(2);
+        private static TimeSpan DefaultTimeout { get; } = TimeSpan.FromSeconds(15);
 
         private static WebDriverWait WebDriverWait =>
             new(WebDriverManager.Driver, DefaultTimeout);
