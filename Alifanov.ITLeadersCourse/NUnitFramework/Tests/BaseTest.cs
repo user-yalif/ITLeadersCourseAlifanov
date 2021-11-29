@@ -17,7 +17,7 @@
 
         private static string TestName => TestContext.CurrentContext.Test.MethodName;
 
-        [SetUp]
+        [OneTimeSetUp]
         public void SetUpTest()
         {
             Logger.Log.Info("{0} test started", TestName);
@@ -26,7 +26,7 @@
             WebDriverManager.Driver.Navigate().GoToUrl(Settings.BaseUrl);
         }
 
-        [TearDown]
+        [OneTimeTearDown]
         public void DisposeTest()
         {
             Logger.Log.Info("{0} test finished with status: {1}", TestName, TestStatus.ToString().ToUpper());

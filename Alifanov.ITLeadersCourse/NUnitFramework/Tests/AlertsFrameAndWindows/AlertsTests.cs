@@ -16,5 +16,17 @@
 
             Assert.That(actualMessage, Is.EqualTo(expectedMessage), "Messages are not equal");
         }
+
+        [Test]
+        [TestCase("You clicked a button")]
+        public void AcceptAlert(string expectedMessage)
+        {
+            var alertsPage = LeftPanel.AlertsFrameAndWindows.Alerts();
+
+            var actualMessage = alertsPage.ClickOnAlertButton()
+                .AcceptAlert();
+
+            Assert.That(actualMessage, Is.EqualTo(expectedMessage), "Messages are not equal");
+        }
     }
 }

@@ -6,6 +6,8 @@
 
     public class AlertsPage : BasePage
     {
+        private IWebElement AlertButton => FindElement(By.CssSelector("button#alertButton"));
+
         private IWebElement AlertWithTimeoutButton => FindElement(By.CssSelector("button#timerAlertButton"));
 
         public AlertsPage ClickOnAlertWithTimeoutButton()
@@ -13,6 +15,14 @@
             Logger.Log.Info("Click on Alert with timeout button");
 
             AlertWithTimeoutButton.Click();
+
+            return this;
+        }
+
+        public AlertsPage ClickOnAlertButton()
+        {
+            Logger.Log.Info("Click on Alert button");
+            AlertButton.Click();
 
             return this;
         }
