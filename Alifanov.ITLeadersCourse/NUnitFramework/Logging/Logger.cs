@@ -14,7 +14,7 @@
             {
                 return loggerInstance ??= new LoggerFactory()
                     .GetLogger(Settings.Logger)
-                    .SetUp();
+                    .SetUpLogger();
             }
         }
     }

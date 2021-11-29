@@ -4,6 +4,6 @@
 
     public abstract class IDriverFactory
     {
-        public abstract IDriver GetDriver(BrowserType driverType);
+        public abstract IDriver GetDriver(BrowserType browserType);
     }
 }

@@ -8,14 +8,14 @@
     {
         private static ChromeOptions GetChromeOptions()
         {
-            ChromeOptions options = new();
+            var options = new ChromeOptions();
 
             options.AddArgument("--start-maximized");
 
             return options;
         }
 
-        public IWebDriver Setup(string pathToDriver) =>
+        public IWebDriver SetUpDriver(string pathToDriver) =>
             new ChromeDriver(pathToDriver, GetChromeOptions());
     }
 }

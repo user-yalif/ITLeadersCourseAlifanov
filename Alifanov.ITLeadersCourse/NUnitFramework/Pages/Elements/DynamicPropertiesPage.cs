@@ -1,10 +1,6 @@
 ﻿namespace NUnitFramework.Pages.Elements
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using NUnitFramework.Helpers;
     using OpenQA.Selenium;
 
     public class DynamicPropertiesPage : BasePage
@@ -13,7 +9,7 @@
 
         public bool IsEnableAfterButtonEnabled()
         {
-            return Helpers.Waiter.WaitUntilElementToBeEnabled(EnableAfterButton);
+            return Waiter.WaitUntilElementToBeEnabled(EnableAfterButton);
         }
     }
 }

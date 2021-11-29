@@ -7,11 +7,11 @@
 
     public static class SettingsConfigurator
     {
-        private static readonly string PathToSettings = @"AppSettings\Files\appsettings.json";
+        private static readonly string PathToAppSettings = @"AppSettings\Files\appsettings.json";
 
-        private static AppSettingsModel GetSettings()
+        private static AppSettingsModel GetAppSettings()
         {
-            var settings = File.ReadAllText(PathToSettings);
+            var settings = File.ReadAllText(PathToAppSettings);
 
             return JsonSerializer.Deserialize<AppSettingsModel>(settings, new JsonSerializerOptions()
             {
@@ -21,6 +21,6 @@
             });
         }
 
-        public static AppSettingsModel Settings { get; } = GetSettings();
+        public static AppSettingsModel Settings { get; } = GetAppSettings();
     }
 }

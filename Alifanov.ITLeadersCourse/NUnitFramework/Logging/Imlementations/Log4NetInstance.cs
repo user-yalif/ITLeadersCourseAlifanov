@@ -11,7 +11,7 @@
     {
         public ILog Logger { get; set; }
 
-        public ILoggerInstance SetUp()
+        public ILoggerInstance SetUpLogger()
         {
             ILoggerRepository loggerRepository = LogManager.GetRepository(Assembly.GetExecutingAssembly());
             XmlConfigurator.Configure(loggerRepository, new FileInfo(@"AppSettings\Files\log4net.config"));
@@ -42,7 +42,6 @@
         {
             Logger.Info(string.Format(message, args));
         }
-
 
         public void Worn(string message)
         {

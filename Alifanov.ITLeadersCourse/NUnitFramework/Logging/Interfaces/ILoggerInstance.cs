@@ -2,7 +2,7 @@
 {
     public interface ILoggerInstance
     {
-        ILoggerInstance SetUp();
+        ILoggerInstance SetUpLogger();
 
         void Info(string message);
 
