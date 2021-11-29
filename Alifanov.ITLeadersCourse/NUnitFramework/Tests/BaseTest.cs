@@ -11,7 +11,8 @@
 
     public class BaseTest
     {
-        private static string PathToScreenshots => Path.Combine(AppDomain.CurrentDomain.BaseDirectory + Settings.Paths.ScreenshotsOutput);
+        private static string PathToScreenshots =>
+            Path.Combine(AppDomain.CurrentDomain.BaseDirectory + Settings.Paths.ScreenshotsOutput);
 
         private static TestStatus TestStatus => TestContext.CurrentContext.Result.Outcome.Status;
 

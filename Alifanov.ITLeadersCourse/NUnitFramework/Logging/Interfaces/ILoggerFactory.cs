@@ -4,6 +4,6 @@
 
     public abstract class ILoggerFactory
     {
-        public abstract ILoggerInstance GetLogger(LoggerType logger);
+        public abstract ILoggerInstance GetLogger(LoggerType loggerType);
     }
 }

@@ -24,7 +24,7 @@
                 {
                     var driver = new DriverFactory()
                             .GetDriver(Settings.Browser)
-                            .Setup(PathToDriver);
+                            .SetUpDriver(PathToDriver);
 
                     if (driver == null)
                     {
@@ -50,12 +50,14 @@
 
                 DriversInUse[CurrentKey].Quit();
 
+                Logger.Log.Info($"Try to close WebDriver; Key: {CurrentKey} SessionId: {sessionId}");
+
                 if (!DriversInUse.TryRemove(CurrentKey, out _))
                 {
                     throw new ArgumentNullException();
                 }
 
-                Logger.Log.Info($"Try to close WebDriver; Key: {CurrentKey} SessionId: {sessionId}");
+                Logger.Log.Info($"WebDriver Quit: SUCCESS");
             }
         }
     }

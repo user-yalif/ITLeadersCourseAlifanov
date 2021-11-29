@@ -1,7 +1,7 @@
 ﻿namespace NUnitFramework.Pages.AlertsFrameAndWindows
 {
     using NUnitFramework.Logging;
-    using NUnitFramework.Pages.AlertsFrameAndWindows.ModalDialogsElement;
+    using NUnitFramework.Pages.AlertsFrameAndWindows.ModalDialogsElements;
     using OpenQA.Selenium;
 
     public class ModalDialogsPage : BasePage
