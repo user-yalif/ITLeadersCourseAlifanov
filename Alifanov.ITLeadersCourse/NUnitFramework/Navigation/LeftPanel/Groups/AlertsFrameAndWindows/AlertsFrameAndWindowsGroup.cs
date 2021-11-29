@@ -5,5 +5,7 @@
     public class AlertsFrameAndWindowsGroup : BaseGroup
     {
         public AlertsPage Alerts() => NavigateTo<AlertsPage>("alerts");
+
+        public ModalDialogsPage ModalDialogs() => NavigateTo<ModalDialogsPage>("modal-dialogs");
     }
 }

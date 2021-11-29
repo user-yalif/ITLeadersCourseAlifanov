@@ -15,5 +15,8 @@
 
         public static IAlert WaitUntilAlertIsDisplayed() =>
             WebDriverWait.Until(ExpectedConditions.AlertIsPresent());
+
+        public static bool WaitUntilElementToBeEnabled(IWebElement element) =>
+            WebDriverWait.Until(driver => element.Enabled);
     }
 }
