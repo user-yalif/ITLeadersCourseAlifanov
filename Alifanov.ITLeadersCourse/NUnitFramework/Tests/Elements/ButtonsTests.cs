@@ -16,7 +16,6 @@ namespace NUnitFramework.Tests.Elements
                 .GetMessageAfterDoubleClick();
 
             Assert.That(actualMessage, Is.EqualTo(expectedMessage), "Messages are not equal");
-
         }
     }
 }

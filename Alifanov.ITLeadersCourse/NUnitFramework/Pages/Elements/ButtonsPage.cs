@@ -28,7 +28,6 @@ namespace NUnitFramework.Pages.Elements
             Logger.Log.Info("Get message after clicking on Double Click Me button");
 
             return DoubleClickButtonMessage.Text;
-
         }
     }
 }
