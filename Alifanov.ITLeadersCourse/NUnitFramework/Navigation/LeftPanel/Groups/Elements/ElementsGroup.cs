@@ -7,5 +7,7 @@
         public DynamicPropertiesPage DynamicProperties() => NavigateTo<DynamicPropertiesPage>("dynamic-properties");
 
         public ButtonsPage Buttons() => NavigateTo<ButtonsPage>("buttons");
+
+        public LinksPage Links() => NavigateTo<LinksPage>("links");
     }
 }
