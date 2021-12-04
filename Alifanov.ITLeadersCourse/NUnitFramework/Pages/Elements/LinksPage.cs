@@ -7,8 +7,7 @@ namespace NUnitFramework.Pages.Elements
     {
         private IWebElement CreatedLink => FindElement(By.CssSelector("a#created"));
 
-        private IWebElement OutputCreatedLink => FindElement(By.Id("linkResponse"));
-
+        private IWebElement CreatedLinkOutput => FindElement(By.Id("linkResponse"));
 
         public LinksPage ClickOnCreatedLink()
         {
@@ -19,9 +18,11 @@ namespace NUnitFramework.Pages.Elements
             return this;
         }
 
-        public string GetOutput()
+        public string GetCreatedLinkOutput()
         {
-            return OutputCreatedLink.Text;
+            Logger.Log.Info("Try to get Created link output");
+
+            return CreatedLinkOutput.Text;
         }
     }
 }
