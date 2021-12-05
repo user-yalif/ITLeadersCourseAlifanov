@@ -17,5 +17,18 @@ namespace NUnitFramework.Tests.Elements
 
             Assert.That(actualMessage, Is.EqualTo(expectedMessage), "Messages are not equal");
         }
+
+        [Test]
+        [Description("Test clicks on Right Click Me button and get message and then asserts that message is correct")]
+        [TestCase("You have done a right click")]
+        public void RightClickOnRightClickMeButton(string expectedMessage)
+        {
+            var buttonsPage = LeftPanel.Elements.Buttons();
+
+            var actualMessage = buttonsPage.RightClickOnRightClickMeButton()
+                .GetMessageAfterRightClickMe();
+
+            Assert.That(actualMessage, Is.EqualTo(expectedMessage), "Messages are not equal");
+        }
     }
 }
