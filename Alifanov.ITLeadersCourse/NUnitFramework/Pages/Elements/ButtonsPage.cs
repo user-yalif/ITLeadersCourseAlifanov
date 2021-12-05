@@ -29,5 +29,24 @@ namespace NUnitFramework.Pages.Elements
 
             return DoubleClickButtonMessage.Text;
         }
+<<<<<<< Updated upstream
+=======
+
+        public ButtonsPage RightClickOnRightClickMeButton()
+        {
+            Logger.Log.Info("Click on Right Click Me Button");
+            Actions actions = new Actions(Driver);
+            actions.ContextClick(RightClickMeButton);
+            actions.Build()
+                .Perform();
+
+            return this;
+        }
+        public string GetMessageAfterRightClickMe()
+        {
+            Logger.Log.Info("Get message after right clicking on Right Click Me button");
+            return RightClickMeButtonMessage.Text;
+        }
+>>>>>>> Stashed changes
     }
 }
