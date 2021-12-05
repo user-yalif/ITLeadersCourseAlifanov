@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using NUnitFramework.Helpers;
 using NUnitFramework.Navigation.LeftPanel;
 
 namespace NUnitFramework.Tests.Elements
@@ -16,6 +17,24 @@ namespace NUnitFramework.Tests.Elements
                 .GetCreatedLinkOutput();
 
             Assert.That(actualMessage, Is.EqualTo(expectedMessage), "Messages are not equal");
+        }
+        [Test]
+        [Description("Test clicks on Home Link and get window's url and then check out that link is equal to BaseUrl")]
+        [TestCase("https://demoqa.com/")]
+        public void ClickOnHomeLink(string BaseUrl)
+        {
+            var linksPage = LeftPanel.Elements.Links();
+            var linksPagelWindowHandle = WindowHelper.AddWindow();
+
+            var newHomePage = linksPage.ClickOnHomeLink();
+            var newHomePagelWindowHandle = WindowHelper.AddWindow();
+            WindowHelper.SwitchTo(newHomePagelWindowHandle);
+            var actualUrl = newHomePage.GetUrl();
+                
+
+            Assert.That(actualUrl, Is.EqualTo(BaseUrl), "Urls are not equal");
+            WindowHelper.SwitchTo(linksPagelWindowHandle);
+            WindowHelper.CloseAllBut(linksPagelWindowHandle);
         }
     }
 }
