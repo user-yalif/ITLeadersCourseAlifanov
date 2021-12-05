@@ -9,11 +9,10 @@ namespace NUnitFramework.Pages.Elements
         private IWebElement DoubleClickMeButton => FindElement(By.CssSelector("button#doubleClickBtn"));
 
         private IWebElement DoubleClickButtonMessage => FindElement(By.CssSelector("p#doubleClickMessage"));
+
         private IWebElement RightClickMeButton => FindElement(By.CssSelector("button#rightClickBtn"));
 
         private IWebElement RightClickMeButtonMessage => FindElement(By.CssSelector("p#rightClickMessage"));
-
-
 
         public ButtonsPage ClickOnDoubleClickMeButton()
         {
@@ -38,22 +37,15 @@ namespace NUnitFramework.Pages.Elements
         public ButtonsPage RightClickOnRightClickMeButton()
         {
             Logger.Log.Info("Click on Right Click Me Button");
-
             Actions actions = new Actions(Driver);
-
             actions.ContextClick(RightClickMeButton);
-
             actions.Build()
                 .Perform();
-
             return this;
         }
-
         public string GetMessageAfterRightClickMe()
         {
-
             Logger.Log.Info("Get message after right clicking on Right Click Me button");
-
             return RightClickMeButtonMessage.Text;
         }
     }
