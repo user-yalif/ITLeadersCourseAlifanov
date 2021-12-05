@@ -10,6 +10,10 @@ namespace NUnitFramework.Pages.Elements
 
         private IWebElement DoubleClickButtonMessage => FindElement(By.CssSelector("p#doubleClickMessage"));
 
+        private IWebElement ClickMeButton => FindElement(By.CssSelector("button#VQsFM"));
+
+        private IWebElement ClickMeButtonMessage => FindElement(By.CssSelector("p#dynamicClickMessage"));
+
         public ButtonsPage ClickOnDoubleClickMeButton()
         {
             Logger.Log.Info("Click on Double Click Me button");
@@ -48,5 +52,25 @@ namespace NUnitFramework.Pages.Elements
             return RightClickMeButtonMessage.Text;
         }
 >>>>>>> Stashed changes
+
+        public ButtonsPage ClickOnClickMeButton()
+        {
+            Logger.Log.Info("Click on Click Me Button");
+
+
+            Actions actions = new Actions(Driver);
+
+            actions.ContextClick(ClickMeButton);
+            actions.Build()
+                .Perform();
+
+            return this;
+        }
+
+        public string GetMessageAfterClickOnClickMeButton()
+        {
+            Logger.Log.Info("Get message after clicking on Click Me button");
+            return ClickMeButtonMessage.Text;
+        }
     }
 }
