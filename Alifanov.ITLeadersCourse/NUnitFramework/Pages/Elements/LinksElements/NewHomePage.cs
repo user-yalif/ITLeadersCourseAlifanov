@@ -6,7 +6,8 @@ namespace NUnitFramework.Pages.Elements.LinksElements
     {
         public string GetUrl()
         {
-            Logger.Log.Info("Click on Home Link");
+            Logger.Log.Info("Get New Home page url");
+
             return Driver.Url;
         }
     }
