@@ -18,5 +18,24 @@
 
         public static bool WaitUntilElementToBeEnabled(IWebElement element) =>
             WebDriverWait.Until(driver => element.Enabled);
+
+        public static bool WaitUntilElementToBeDisplayed(By locator) =>
+            WebDriverWait.Until(IsDisplayed(locator));
+
+        private static Func<IWebDriver, bool> IsDisplayed(By locator)
+        {
+            return webDriver =>
+            {
+                try
+                {
+                    webDriver.FindElement(locator);
+                    return true;
+                }
+                catch (NoSuchElementException)
+                {
+                    return false;
+                }
+            };
+        }
     }
 }
