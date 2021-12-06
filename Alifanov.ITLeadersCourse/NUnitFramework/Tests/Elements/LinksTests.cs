@@ -4,7 +4,7 @@ using NUnitFramework.Navigation.LeftPanel;
 
 namespace NUnitFramework.Tests.Elements
 {
-    class LinksTests : BaseTest
+    public class LinksTests : BaseTest
     {
         [Test]
         [Description("Test clicks on Created Link and get output and then asserts that output is correct")]
@@ -32,8 +32,8 @@ namespace NUnitFramework.Tests.Elements
             WindowHelper.SwitchTo(newHomePagelWindowHandle);
             var actualUrl = newHomePage.GetUrl();
 
-
             Assert.That(actualUrl, Is.EqualTo(BaseUrl), "Urls are not equal");
+
             WindowHelper.SwitchTo(linksPagelWindowHandle);
             WindowHelper.CloseAllBut(linksPagelWindowHandle);
         }
