@@ -18,7 +18,6 @@ namespace NUnitFramework.Pages.Elements
 
         private IWebElement RightClickMeButtonMessage => FindElement(By.CssSelector("p#rightClickMessage"));
 
-
         public ButtonsPage ClickOnDoubleClickMeButton()
         {
             Logger.Log.Info("Click on Double Click Me button");
@@ -73,6 +72,12 @@ namespace NUnitFramework.Pages.Elements
             Logger.Log.Info("Try to get Click Me button message");
 
             return ClickMeButtonMessage.Text;
+        }
+
+        public string GetMessageAfterRightClickMe()
+        {
+            Logger.Log.Info("Get message after right clicking on Right Click Me button");
+            return RightClickMeButtonMessage.Text;
         }
     }
 }
