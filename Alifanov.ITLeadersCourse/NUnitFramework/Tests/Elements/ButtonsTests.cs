@@ -13,15 +13,14 @@ namespace NUnitFramework.Tests.Elements
             var buttonsPage = LeftPanel.Elements.Buttons();
 
             var actualMessage = buttonsPage.ClickOnDoubleClickMeButton()
-                .GetMessageAfterDoubleClick();
+                .GetDoubleClickMeButtonMessage();
 
             Assert.That(actualMessage, Is.EqualTo(expectedMessage), "Messages are not equal");
         }
 
         [Test]
         [Description("Test clicks on Click Me button and get message and then asserts that message is correct")]
-        [TestCase("You have done a click")]
-
+        [TestCase("You have done a dynamic click")]
         public void CliclOnClickMeButton(string expectedMessage)
         {
             var buttonsPage = LeftPanel.Elements.Buttons();
