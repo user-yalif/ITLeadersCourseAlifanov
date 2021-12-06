@@ -1,6 +1,6 @@
 ﻿using NUnitFramework.Logging;
 
-namespace NUnitFramework.Pages.Elements
+namespace NUnitFramework.Pages.Elements.LinksElements
 {
     public class NewHomePage : BasePage
     {
