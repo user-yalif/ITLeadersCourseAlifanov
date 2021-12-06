@@ -7,7 +7,9 @@ namespace NUnitFramework.Pages.Elements
     public class LinksPage : BasePage
     {
         private IWebElement CreatedLink => FindElement(By.CssSelector("a#created"));
+
         private IWebElement CreatedLinkOutput => FindElement(By.Id("linkResponse"));
+
         private IWebElement HomeLink => FindElement(By.Id("simpleLink"));
 
         public LinksPage ClickOnCreatedLink()
@@ -25,6 +27,7 @@ namespace NUnitFramework.Pages.Elements
 
             return CreatedLinkOutput.Text;
         }
+
         public NewHomePage ClickOnHomeLink()
         {
             Logger.Log.Info("Click on Home Link");
