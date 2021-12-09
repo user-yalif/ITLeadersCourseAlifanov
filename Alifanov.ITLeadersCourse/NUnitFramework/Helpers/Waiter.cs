@@ -1,9 +1,9 @@
 ﻿namespace NUnitFramework.Helpers
 {
-    using System;
     using NUnitFramework.Drivers;
     using OpenQA.Selenium;
     using OpenQA.Selenium.Support.UI;
+    using System;
     using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
 
     public static class Waiter
@@ -37,5 +37,20 @@
                 }
             };
         }
+
+        public static bool WaitUntilElementsAttributeValueContains(IWebElement element, string attribute, string parameter) =>
+            WebDriverWait.Until(driver =>
+            {
+                var attributeValue = element.GetAttribute(attribute);
+
+                if (attributeValue.Contains(parameter))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            });
     }
 }
