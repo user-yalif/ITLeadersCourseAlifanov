@@ -19,11 +19,13 @@
         [Test]
         [Description("Test waits until Color Button's color change")]
         [TestCase(true)]
-        public void IsColorButtonChangeColor(bool expextedResult)
+        public void WaitColorButtonChangesColor(bool expectedResult)
         {
             var dynamicPropertiesPage = LeftPanel.Elements.DynamicProperties();
 
             var isColorChanged = dynamicPropertiesPage.IsColorButtonColorChanged();
+
+            Assert.That(isColorChanged, Is.EqualTo(expectedResult), "Button should change its color");
         }
     }
 }
