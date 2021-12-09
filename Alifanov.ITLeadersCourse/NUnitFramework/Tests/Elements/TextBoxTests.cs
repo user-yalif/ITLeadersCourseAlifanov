@@ -8,7 +8,7 @@ namespace NUnitFramework.Tests.Elements
         [Test]
         [Description("Test checks that inputed data is correct")]
         [TestCase("John Smith", "john@smith.com", "Buckingham Palace", "12, Downing St.")]
-        public void CompareFullNameAfterClickOnSubmitButton(string name, string email, string currentAddress, string permanentAddress)
+        public void SubmitTextBoxInput(string name, string email, string currentAddress, string permanentAddress)
         {
             var textBoxPage = LeftPanel.Elements.TextBox()
                 .SubmitInputedData(name, email, currentAddress, permanentAddress);
