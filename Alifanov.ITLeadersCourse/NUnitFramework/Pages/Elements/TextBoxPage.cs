@@ -5,55 +5,54 @@ namespace NUnitFramework.Pages.Elements
 {
     public class TextBoxPage : BasePage
     {
-        private IWebElement FullNameField => FindElement(By.CssSelector("input#userName"));
+        private IWebElement FullNameInput => FindElement(By.CssSelector("input#userName"));
 
-        private IWebElement UserEmailField => FindElement(By.CssSelector("input#userEmail"));
+        private IWebElement EmailInput => FindElement(By.CssSelector("input#userEmail"));
 
-        private IWebElement CurrentAddressField => FindElement(By.CssSelector("textarea#currentAddress"));
+        private IWebElement CurrentAddressTextArea => FindElement(By.CssSelector("textarea#currentAddress"));
 
-        private IWebElement PermanentAddressField => FindElement(By.CssSelector("textarea#permanentAddress"));
+        private IWebElement PermanentAddressTextArea => FindElement(By.CssSelector("textarea#permanentAddress"));
 
         private IWebElement SubmitButton => FindElement(By.CssSelector("button#submit"));
 
-        //private IWebElement NameInOutputUserForm => FindElement(By.CssSelector("p#name"));
+        private IWebElement NameOutputMessage => FindElement(By.CssSelector("p#name"));
 
-        private IWebElement NameInOutputUserForm => FindElement(By.CssSelector("p#name.mb-1"));
+        private IWebElement EmailOutputMessage => FindElement(By.CssSelector("p#email"));
 
-        //private IWebElement NameInOutputUserForm => FindElement(By.XPath("//div[@class='mb-1'][@id='name']"));
+        private IWebElement CurrentAddressOutputMessage => FindElement(By.CssSelector("p#currentAddress"));
 
-        private IWebElement EmailInOutputUserForm => FindElement(By.CssSelector("p#email"));
+        private IWebElement PermanentAddressOutputMessage => FindElement(By.CssSelector("p#permanentAddress"));
 
-        private IWebElement CurrentAddressInOutputUserForm => FindElement(By.CssSelector("p#currentAddress"));
-
-        private IWebElement PermanentAddressInOutputUserForm => FindElement(By.CssSelector("p#permanentAddress"));
-
-        public TextBoxPage InputFullName(string expectedFullNameMessage)
+        public TextBoxPage InputFullName(string fullName)
         {
-            FullNameField.Clear();
-            FullNameField.SendKeys(expectedFullNameMessage);
+            Logger.Log.Info("Input Name {0}", fullName);
+
+            FullNameInput.Clear();
+            FullNameInput.SendKeys(fullName);
 
             return this;
         }
 
-        public TextBoxPage InputUserEmail(string expectedUserEmailMessage)
+        public TextBoxPage InputEmail(string email)
         {
-            UserEmailField.Clear();
-            UserEmailField.SendKeys(expectedUserEmailMessage);
-
-            return this;
-        }
-        public TextBoxPage InputCurrentAddress(string expectedCurrentAddressMessage)
-        {
-            CurrentAddressField.Clear();
-            CurrentAddressField.SendKeys(expectedCurrentAddressMessage);
+            EmailInput.Clear();
+            EmailInput.SendKeys(email);
 
             return this;
         }
 
-        public TextBoxPage InputPermanentAddress(string expectedPermanentAddressMessage)
+        public TextBoxPage InputCurrentAddress(string currentAddress)
         {
-            PermanentAddressField.Clear();
-            PermanentAddressField.SendKeys(expectedPermanentAddressMessage);
+            CurrentAddressTextArea.Clear();
+            CurrentAddressTextArea.SendKeys(currentAddress);
+
+            return this;
+        }
+
+        public TextBoxPage InputPermanentAddress(string permanentAddress)
+        {
+            PermanentAddressTextArea.Clear();
+            PermanentAddressTextArea.SendKeys(permanentAddress);
 
             return this;
         }
@@ -67,33 +66,43 @@ namespace NUnitFramework.Pages.Elements
             return this;
         }
 
-        public string GetNameInUserForm()
+        public string GetNameOutputMessage()
         {
-            Logger.Log.Info("Get Name after click on Submit button");
+            Logger.Log.Info("Try to get Name output message");
 
-            return NameInOutputUserForm.Text.Split(":")[1];
-            //return NameInOutputUserForm.Text.Split(":")[1].TrimStart().TrimEnd();
+            return NameOutputMessage.Text;
         }
 
-        public string GetEmailInUserForm()
+        public string GetEmailOutputMessage()
         {
-            Logger.Log.Info("Get Email after click on Submit button");
+            Logger.Log.Info("Try to get Email output message");
 
-            return EmailInOutputUserForm.Text.Split(":")[1];
+            return EmailOutputMessage.Text;
         }
 
-        public string GetCurrentAddressInUserForm()
+        public string GetCurrentAddressMessage()
         {
-            Logger.Log.Info("Get Current Address after click on Submit button");
+            Logger.Log.Info("Try to get Current Address output message");
 
-            return CurrentAddressInOutputUserForm.Text.Split(":")[1];
+            return CurrentAddressOutputMessage.Text;
         }
 
-        public string GetPermanentAddressInUserForm()
+        public string GetPermanentAddressMessage()
         {
-            Logger.Log.Info("Get Permanent Address after click on Submit button");
+            Logger.Log.Info("Try to get Permanent Address output message");
 
-            return PermanentAddressInOutputUserForm.Text.Split(":")[1];
+            return PermanentAddressOutputMessage.Text;
+        }
+
+        public TextBoxPage SubmitInputedData(string fullName, string email, string currentAddress, string permanentAddress)
+        {
+            InputFullName(fullName)
+                    .InputEmail(email)
+                    .InputCurrentAddress(currentAddress)
+                    .InputPermanentAddress(permanentAddress)
+                    .ClickOnSubmitButton();
+
+            return this;
         }
     }
 }

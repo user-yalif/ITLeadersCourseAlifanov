@@ -5,57 +5,26 @@ namespace NUnitFramework.Tests.Elements
 {
     public class TextBoxTests : BaseTest
     {
-
         [Test]
-        [Description("Test of Text Box (User Form) with clicks on Submit button and get messages and then asserts that messages are correct")]
-        [TestCase("John Smith")]
-        public void CompareFullNameAfterClickOnSubmitButton(string expectedFullNameMessage)
+        [Description("Test checks that inputed data is correct")]
+        [TestCase("John Smith", "john@smith.com", "Buckingham Palace", "12, Downing St.")]
+        public void CompareFullNameAfterClickOnSubmitButton(string name, string email, string currentAddress, string permanentAddress)
         {
-            var textBoxPage = LeftPanel.Elements.TextBox();          
+            var textBoxPage = LeftPanel.Elements.TextBox()
+                .SubmitInputedData(name, email, currentAddress, permanentAddress);
 
-            var actualMessage = textBoxPage.ClickOnSubmitButton()
-                .GetNameInUserForm();
+            var actualName = textBoxPage.GetNameOutputMessage().Split(":")[1];
+            var actualEmail = textBoxPage.GetEmailOutputMessage().Split(":")[1];
+            var actualCurrentAddress = textBoxPage.GetCurrentAddressMessage().Split(":")[1];
+            var actualPermanentAddress = textBoxPage.GetPermanentAddressMessage().Split(":")[1];
 
-            Assert.That(actualMessage, Is.EqualTo(expectedFullNameMessage), "Message are not equal");
-        }
-
-        [Test]
-        [Description("Test of Text Box (User Form) with clicks on Submit button and get messages and then asserts that messages are correct")]
-        [TestCase("john@smith.com")]
-        public void CompareEmailAfterClickOnSubmitButton(string expectedUserEmailMessage)
-        {
-            var textBoxPage = LeftPanel.Elements.TextBox();
-
-            var actualMessage = textBoxPage.ClickOnSubmitButton()
-                .GetEmailInUserForm();
-
-            Assert.That(actualMessage, Is.EqualTo(expectedUserEmailMessage), "Message are not equal");
-        }
-
-        [Test]
-        [Description("Test of Text Box (User Form) with clicks on Submit button and get messages and then asserts that messages are correct")]
-        [TestCase("Downing street")]
-        public void CompareCurrentAddressAfterClickOnSubmitButton(string expectedCurrentAddressMessage)
-        {
-            var textBoxPage = LeftPanel.Elements.TextBox();
-
-            var actualMessage = textBoxPage.ClickOnSubmitButton()
-                .GetCurrentAddressInUserForm();
-
-            Assert.That(actualMessage, Is.EqualTo(expectedCurrentAddressMessage), "Message are not equal");
-        }
-
-        [Test]
-        [Description("Test of Text Box (User Form) with clicks on Submit button and get messages and then asserts that messages are correct")]
-        [TestCase("Buckingham Palace")]
-        public void ComparePermanentAddressAfterClickOnSubmitButton(string expectedPermanentAddressMessage)
-        {
-            var textBoxPage = LeftPanel.Elements.TextBox();
-
-            var actualMessage = textBoxPage.ClickOnSubmitButton()
-                .GetPermanentAddressInUserForm();
-
-            Assert.That(actualMessage, Is.EqualTo(expectedPermanentAddressMessage), "Message are not equal");
+            Assert.Multiple(() =>
+            {
+                Assert.That(actualName, Is.EqualTo(name), "Wrong Full Name");
+                Assert.That(actualEmail, Does.Contain(email), "Wrong Email");
+                Assert.That(actualCurrentAddress, Does.Contain(currentAddress), "Wrong Current Address");
+                Assert.That(actualPermanentAddress, Does.Contain(permanentAddress), "Wrong Permanent Address");
+            });
         }
     }
 }
