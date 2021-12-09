@@ -21,7 +21,7 @@ namespace NUnitFramework.Tests.Elements
         [Test]
         [Description("Test clicks on Click Me button and get message and then asserts that message is correct")]
         [TestCase("You have done a dynamic click")]
-        public void CliclOnClickMeButton(string expectedMessage)
+        public void ClickOnClickMeButton(string expectedMessage)
         {
             var buttonsPage = LeftPanel.Elements.Buttons();
 
