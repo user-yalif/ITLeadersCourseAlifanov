@@ -95,7 +95,7 @@ namespace NUnitFramework.Pages.Elements.WebTablesElement
             return new WebTablesPage();
         }
 
-        public RegistrationFormPage SubmitInputedData(string firstName, string lastName, string email, string age, string salary, string department)
+        public WebTablesPage SubmitInputedData(string firstName, string lastName, string email, string age, string salary, string department)
         {
             InputFirstName(firstName)
                     .InputLastName(lastName)
@@ -105,7 +105,7 @@ namespace NUnitFramework.Pages.Elements.WebTablesElement
                     .InputDepartment(department)
                     .ClickOnSubmitButton();
 
-            return this;
+            return new WebTablesPage();
         }
     }
 }
