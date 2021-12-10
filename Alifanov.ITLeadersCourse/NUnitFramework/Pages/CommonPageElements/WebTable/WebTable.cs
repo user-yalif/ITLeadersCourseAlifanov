@@ -18,10 +18,10 @@
 
         public WebTable(IWebElement element) => WebTableElement = element;
 
-        public TableCell GetCellByColumnNameAndRowValue(string columnName, string email)
+        public TableCell GetCellByColumnNameAndRowValue(string columnName, string value)
         {
             var columnIdex = HeaderRow.GetColumnIndex(columnName);
-            var tableRow = GetRow(row => row.HasValue(email));
+            var tableRow = GetRow(row => row.HasValue(value));
 
             return tableRow.GetCell(columnIdex);
         }

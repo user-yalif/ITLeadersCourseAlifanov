@@ -25,7 +25,7 @@ namespace NUnitFramework.Pages.Elements
         public string GetFirstNameByRowValue(string value) =>
             WebTable.GetCellByColumnNameAndRowValue("First Name", value).GetText();
 
-        public string GetLastNameByRowValue(string email) =>
-            WebTable.GetCellByColumnNameAndRowValue("Last Name", email).GetText();
+        public string GetLastNameByRowValue(string value) =>
+            WebTable.GetCellByColumnNameAndRowValue("Last Name", value).GetText();
     }
 }
