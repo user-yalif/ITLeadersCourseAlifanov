@@ -28,7 +28,7 @@ namespace NUnitFramework.Pages.Elements
         {
             Logger.Log.Info("Try to get Created link output");
 
-            Waiter.WaitUntilElementToBeDisplayed(CreatedLinkOutputLocator);
+            Waiter.WaitUntilElementToBePresent(CreatedLinkOutputLocator);
 
             return CreatedLinkOutput.Text;
         }
