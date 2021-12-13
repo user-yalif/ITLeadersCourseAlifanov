@@ -11,6 +11,5 @@
         public LinksPage Links() => NavigateTo<LinksPage>("links");
 
         public TextBoxPage TextBox() => NavigateTo<TextBoxPage>("text-box");
-
     }
 }
