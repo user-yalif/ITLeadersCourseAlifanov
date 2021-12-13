@@ -19,10 +19,13 @@
         public static bool WaitUntilElementToBeEnabled(IWebElement element) =>
             WebDriverWait.Until(driver => element.Enabled);
 
-        public static bool WaitUntilElementToBeDisplayed(By locator) =>
-            WebDriverWait.Until(IsDisplayed(locator));
-
-        private static Func<IWebDriver, bool> IsDisplayed(By locator)
+        public static bool WaitUntilElementToBePresent(By locator) =>
+            WebDriverWait.Until(IsElementPresent(locator));
+              
+        public static IWebElement WaitUntilElementToBeClickable(By locator) =>
+            WebDriverWait.Until(ExpectedConditions.ElementToBeClickable(locator));
+                      
+        private static Func<IWebDriver, bool> IsElementPresent(By locator)
         {
             return webDriver =>
             {

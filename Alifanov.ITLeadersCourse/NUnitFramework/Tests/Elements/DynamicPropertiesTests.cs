@@ -27,5 +27,22 @@
 
             Assert.That(isColorChanged, Is.EqualTo(expectedResult), "Button should change its color");
         }
+
+        [Test]
+        [Description("Test waits until Visible After 5 Seconds Button is enabled and clickable")]
+        [TestCase(true, true)]
+        public void WaitUntilVisibleAfter5SecondsButtonEnabledAndClickable(bool isEnabled, bool isClickable)
+        {
+            var dynamicPropertiesPage = LeftPanel.Elements.DynamicProperties();
+
+            bool actualEnabled = dynamicPropertiesPage.IsVisibleAfterButtonEnabled();
+            var actualClickable = dynamicPropertiesPage.IsVisibleAfterButtonClickable();
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(actualEnabled, Is.EqualTo(isEnabled), "Button should be enabled");
+                Assert.That(actualClickable, Is.EqualTo(isClickable), "Button should be clickable");
+            });
+        }
     }
 }

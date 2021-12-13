@@ -13,6 +13,5 @@
         public TextBoxPage TextBox() => NavigateTo<TextBoxPage>("text-box");
 
         public WebTablesPage WebTables() => NavigateTo<WebTablesPage>("webtables");
-
     }
 }
