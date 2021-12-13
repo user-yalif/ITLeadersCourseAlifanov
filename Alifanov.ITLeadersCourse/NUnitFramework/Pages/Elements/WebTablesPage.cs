@@ -27,5 +27,30 @@ namespace NUnitFramework.Pages.Elements
 
         public string GetLastNameByRowValue(string value) =>
             WebTable.GetCellByColumnNameAndRowValue("Last Name", value).GetText();
+        public string GetEmailByRowValue(string value) =>
+            WebTable.GetCellByColumnNameAndRowValue("Email", value).GetText();
+
+        public string GetAgeByRowValue(string value) =>
+            WebTable.GetCellByColumnNameAndRowValue("Age", value).GetText();
+
+        public string GetDepartmentByRowValue(string value) =>
+            WebTable.GetCellByColumnNameAndRowValue("Department", value).GetText();
+
+        public int GetNotEmptyRowsCount()
+        {
+            Logger.Log.Info("Getting count of non empty rows");
+
+            return WebTable.GetNotEmptyTableRows().Count;
+        }
+
+        public WebTablesPage ClickOnRowDeleteButtonByEmail(string email)
+        {
+            Logger.Log.Info("Click on Row Delete button");
+
+            var actionCell = WebTable.GetCellByColumnNameAndRowValue("Action", email);
+            actionCell.GetCellValue(By.XPath(".//span[@title='Delete']")).Click();
+
+            return this;
+        }
     }
 }

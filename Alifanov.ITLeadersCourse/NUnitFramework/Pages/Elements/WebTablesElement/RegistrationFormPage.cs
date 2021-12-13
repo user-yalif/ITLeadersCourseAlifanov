@@ -97,6 +97,8 @@ namespace NUnitFramework.Pages.Elements.WebTablesElement
 
         public WebTablesPage SubmitInputedData(string firstName, string lastName, string email, string age, string salary, string department)
         {
+            Logger.Log.Info("Try to Submit data");
+
             InputFirstName(firstName)
                     .InputLastName(lastName)
                     .InputEmail(email)
@@ -104,6 +106,8 @@ namespace NUnitFramework.Pages.Elements.WebTablesElement
                     .InputSalary(salary)
                     .InputDepartment(department)
                     .ClickOnSubmitButton();
+
+            Logger.Log.Info("Submit data");
 
             return new WebTablesPage();
         }

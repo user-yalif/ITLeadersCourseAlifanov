@@ -14,5 +14,8 @@
 
         public bool HasValue(string value) =>
             CellElement.Text.Trim().Equals(value, System.StringComparison.OrdinalIgnoreCase);
+
+        public IWebElement GetCellValue(By locator) =>
+            CellElement.FindElement(locator);
     }
 }
