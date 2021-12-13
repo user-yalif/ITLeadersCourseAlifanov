@@ -32,8 +32,6 @@
 
         public bool IsVisibleAfterButtonClickable()
         {
-            VisibleAfterButton.Click();
-
             return Waiter.WaitUntilElementToBeClickable(VisibleAfterButtonLocator) != null;
         }
     }
