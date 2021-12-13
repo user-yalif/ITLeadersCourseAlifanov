@@ -23,9 +23,4 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Pages\Forms\" />
-  </ItemGroup>
-
 </Project>
