@@ -21,18 +21,21 @@
         public string GetHeader()
         {
             Logger.Log.Info("Try to get Small Modal's header");
+
             return Header.Text;
         }
 
         public string GetMessage()
         {
             Logger.Log.Info("Try to get Small Modal's message");
+
             return Body.Text;
         }
 
-        public ModalDialogsPage CloseDialog()
+        public ModalDialogsPage CloseModal()
         {
             Logger.Log.Info("Click on Small Modal's Close button");
+
             CloseButton.Click();
 
             return new ModalDialogsPage();

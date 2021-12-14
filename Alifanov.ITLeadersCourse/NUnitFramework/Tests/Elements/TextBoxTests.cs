@@ -11,19 +11,19 @@ namespace NUnitFramework.Tests.Elements
         public void SubmitTextBoxInput(string name, string email, string currentAddress, string permanentAddress)
         {
             var textBoxPage = LeftPanel.Elements.TextBox()
-                .SubmitInputedData(name, email, currentAddress, permanentAddress);
+                .SubmitData(name, email, currentAddress, permanentAddress);
 
-            var actualName = textBoxPage.GetNameOutputMessage().Split(":")[1];
-            var actualEmail = textBoxPage.GetEmailOutputMessage().Split(":")[1];
-            var actualCurrentAddress = textBoxPage.GetCurrentAddressMessage().Split(":")[1];
-            var actualPermanentAddress = textBoxPage.GetPermanentAddressMessage().Split(":")[1];
+            var actualName = textBoxPage.GetOutputName();
+            var actualEmail = textBoxPage.GetOutputEmail();
+            var actualCurrentAddress = textBoxPage.GetOutputCurrentAddress();
+            var actualPermanentAddress = textBoxPage.GetOutputPermanentAddress();
 
             Assert.Multiple(() =>
             {
                 Assert.That(actualName, Is.EqualTo(name), "Wrong Full Name");
-                Assert.That(actualEmail, Does.Contain(email), "Wrong Email");
-                Assert.That(actualCurrentAddress, Does.Contain(currentAddress), "Wrong Current Address");
-                Assert.That(actualPermanentAddress, Does.Contain(permanentAddress), "Wrong Permanent Address");
+                Assert.That(actualEmail, Is.EqualTo(email), "Wrong Email");
+                Assert.That(actualCurrentAddress, Is.EqualTo(currentAddress), "Wrong Current Address");
+                Assert.That(actualPermanentAddress, Is.EqualTo(permanentAddress), "Wrong Permanent Address");
             });
         }
     }

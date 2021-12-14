@@ -1,10 +1,5 @@
 ﻿namespace NUnitFramework.Tests.AlertsFrameAndWindows
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using NUnit.Framework;
     using NUnitFramework.Navigation.LeftPanel;
 
@@ -14,14 +9,13 @@
         [TestCase("Small Modal", "This is a small modal.")]
         public void SmallModalTest(string expectedHeader, string expectedMessage)
         {
-            var modalDialogsPage = LeftPanel.AlertsFrameAndWindows.ModalDialogs();
-
-            var smallModal = modalDialogsPage.ClickOnSmallModalButton();
+            var smallModal = LeftPanel.AlertsFrameAndWindows.ModalDialogs()
+                .ClickOnSmallModalButton();
 
             var actualHeader = smallModal.GetHeader();
             var actualMessage = smallModal.GetMessage();
 
-            smallModal.CloseDialog();
+            smallModal.CloseModal();
 
             Assert.Multiple(() =>
             {

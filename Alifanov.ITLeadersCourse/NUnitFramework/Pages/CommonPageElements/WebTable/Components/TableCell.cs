@@ -10,7 +10,7 @@
 
         public string GetText() => CellElement.Text;
 
-        public bool HasValue() => !string.IsNullOrEmpty(CellElement.Text);
+        public bool HasValue() => !string.IsNullOrEmpty(CellElement.Text.Trim());
 
         public bool HasValue(string value) =>
             CellElement.Text.Trim().Equals(value, System.StringComparison.OrdinalIgnoreCase);

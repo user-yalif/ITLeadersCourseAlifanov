@@ -22,6 +22,7 @@
         public AlertsPage ClickOnAlertButton()
         {
             Logger.Log.Info("Click on Alert button");
+
             AlertButton.Click();
 
             return this;
@@ -30,9 +31,11 @@
         public string AcceptAlert()
         {
             Logger.Log.Info("Wait for alert");
+
             var alert = Waiter.WaitUntilAlertIsDisplayed();
 
             Logger.Log.Info("Accept alert and get message");
+
             return alert.AcceptAlert();
         }
     }

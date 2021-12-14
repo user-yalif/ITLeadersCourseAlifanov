@@ -8,9 +8,9 @@
 
         void Info(string message, params object[] args);
 
-        void Worn(string message);
+        void Warn(string message);
 
-        void Worn(string message, params object[] args);
+        void Warn(string message, params object[] args);
 
         void Error(string message);
 
