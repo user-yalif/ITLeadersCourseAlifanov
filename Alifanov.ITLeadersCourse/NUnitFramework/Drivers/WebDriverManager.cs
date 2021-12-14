@@ -35,7 +35,7 @@
 
                     DriversInUse[CurrentKey] = driver;
 
-                    Logger.Log.Info($"WebDriver launched; Key: {CurrentKey} SessionId: {((WebDriver)driver).SessionId}");
+                    Logger.Log.Info($"WebDriver instance created; Key: {CurrentKey} SessionId: {((WebDriver)driver).SessionId}");
                 }
 
                 return DriversInUse[CurrentKey];

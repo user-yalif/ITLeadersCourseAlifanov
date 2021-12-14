@@ -21,25 +21,22 @@
 
         public TableCell GetCellByColumnNameAndRowValue(string columnName, string value)
         {
-            Logger.Log.Info("Try to get cell by column name and row value");
-
             var columnIdex = HeaderRow.GetColumnIndex(columnName);
             var tableRow = GetRow(row => row.HasValue(value));
 
             return tableRow.GetCell(columnIdex);
         }
 
-        public TableRow GetRow(Func<TableRow, bool> predicate) => TableRows.FirstOrDefault(predicate);
+        public TableRow GetRow(Func<TableRow, bool> predicate) =>
+            TableRows.FirstOrDefault(predicate);
 
         public List<TableRow> GetNotEmptyTableRows()
         {
-            Logger.Log.Info("Try to get non empty table rows");
-
-            List<TableRow> notEmptyTableRows = new List<TableRow>();
+            List<TableRow> notEmptyTableRows = new();
 
             foreach (var row in TableRows)
             {
-                if (!string.IsNullOrEmpty(row.GetCell(3).GetText().Trim()))
+                if (row.GetCell(3).HasValue())
                 {
                     notEmptyTableRows.Add(row);
                 }

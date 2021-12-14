@@ -8,21 +8,21 @@ namespace NUnitFramework.Pages.Elements
     {
         private IWebElement DoubleClickMeButton => FindElement(By.CssSelector("button#doubleClickBtn"));
 
-        private IWebElement DoubleClickButtonMessage => FindElement(By.CssSelector("p#doubleClickMessage"));
+        private IWebElement RightClickMeButton => FindElement(By.CssSelector("button#rightClickBtn"));
 
         private IWebElement ClickMeButton => FindElement(By.XPath("//button[normalize-space()='Click Me']"));
 
-        private IWebElement ClickMeButtonMessage => FindElement(By.CssSelector("p#dynamicClickMessage"));
-
-        private IWebElement RightClickMeButton => FindElement(By.CssSelector("button#rightClickBtn"));
+        private IWebElement DoubleClickMeButtonMessage => FindElement(By.CssSelector("p#doubleClickMessage"));
 
         private IWebElement RightClickMeButtonMessage => FindElement(By.CssSelector("p#rightClickMessage"));
+
+        private IWebElement ClickMeButtonMessage => FindElement(By.CssSelector("p#dynamicClickMessage"));
 
         public ButtonsPage ClickOnDoubleClickMeButton()
         {
             Logger.Log.Info("Click on Double Click Me button");
 
-            Actions actions = new Actions(Driver);
+            Actions actions = new(Driver);
 
             actions.DoubleClick(DoubleClickMeButton);
             actions.Build()
@@ -35,14 +35,14 @@ namespace NUnitFramework.Pages.Elements
         {
             Logger.Log.Info("Try to get Double Click Me button message");
 
-            return DoubleClickButtonMessage.Text;
+            return DoubleClickMeButtonMessage.Text;
         }
 
         public ButtonsPage RightClickOnRightClickMeButton()
         {
             Logger.Log.Info("Click on Right Click Me Button");
 
-            Actions actions = new Actions(Driver);
+            Actions actions = new(Driver);
 
             actions.ContextClick(RightClickMeButton);
             actions.Build()
@@ -67,17 +67,11 @@ namespace NUnitFramework.Pages.Elements
             return this;
         }
 
-        public string GetMessageAfterClickOnClickMeButton()
+        public string GetClickMeButtonMessage()
         {
             Logger.Log.Info("Try to get Click Me button message");
 
             return ClickMeButtonMessage.Text;
-        }
-
-        public string GetMessageAfterRightClickMe()
-        {
-            Logger.Log.Info("Get message after right clicking on Right Click Me button");
-            return RightClickMeButtonMessage.Text;
         }
     }
 }

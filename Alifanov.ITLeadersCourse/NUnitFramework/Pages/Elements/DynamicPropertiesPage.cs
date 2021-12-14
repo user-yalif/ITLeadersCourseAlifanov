@@ -5,7 +5,7 @@
 
     public class DynamicPropertiesPage : BasePage
     {
-        private By VisibleAfterButtonLocator = By.CssSelector("button#visibleAfter");
+        private readonly By VisibleAfterButtonLocator = By.CssSelector("button#visibleAfter");
 
         private IWebElement EnableAfterButton => FindElement(By.CssSelector("button#enableAfter"));
 

@@ -10,9 +10,8 @@ namespace NUnitFramework.Tests.Elements
         [TestCase("You have done a double click")]
         public void ClickOnDoubleClickMeButton(string expectedMessage)
         {
-            var buttonsPage = LeftPanel.Elements.Buttons();
-
-            var actualMessage = buttonsPage.ClickOnDoubleClickMeButton()
+            var actualMessage = LeftPanel.Elements.Buttons()
+                .ClickOnDoubleClickMeButton()
                 .GetDoubleClickMeButtonMessage();
 
             Assert.That(actualMessage, Is.EqualTo(expectedMessage), "Messages are not equal");
@@ -23,10 +22,9 @@ namespace NUnitFramework.Tests.Elements
         [TestCase("You have done a dynamic click")]
         public void ClickOnClickMeButton(string expectedMessage)
         {
-            var buttonsPage = LeftPanel.Elements.Buttons();
-
-            var actualMessage = buttonsPage.ClickOnClickMeButton()
-                .GetMessageAfterClickOnClickMeButton();
+            var actualMessage = LeftPanel.Elements.Buttons()
+                .ClickOnClickMeButton()
+                .GetClickMeButtonMessage();
 
             Assert.That(actualMessage, Is.EqualTo(expectedMessage), "Message are not equal");
         }
@@ -36,10 +34,9 @@ namespace NUnitFramework.Tests.Elements
         [TestCase("You have done a right click")]
         public void RightClickOnRightClickMeButton(string expectedMessage)
         {
-            var buttonsPage = LeftPanel.Elements.Buttons();
-
-            var actualMessage = buttonsPage.RightClickOnRightClickMeButton()
-                .GetMessageAfterRightClickMe();
+            var actualMessage = LeftPanel.Elements.Buttons()
+                .RightClickOnRightClickMeButton()
+                .GetRightClickMeButtonMessage();
 
             Assert.That(actualMessage, Is.EqualTo(expectedMessage), "Messages are not equal");
         }

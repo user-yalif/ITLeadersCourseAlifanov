@@ -9,9 +9,8 @@
         [TestCase(true)]
         public void WaitButtonToBeEnabled(bool expectedResult)
         {
-            var dynamicPropertiesPage = LeftPanel.Elements.DynamicProperties();
-
-            var isButtonEnabled = dynamicPropertiesPage.IsEnableAfterButtonEnabled();
+            var isButtonEnabled = LeftPanel.Elements.DynamicProperties()
+                .IsEnableAfterButtonEnabled();
 
             Assert.That(isButtonEnabled, Is.EqualTo(expectedResult), "Button should be enabled");
         }
@@ -21,9 +20,8 @@
         [TestCase(true)]
         public void WaitColorButtonChangesColor(bool expectedResult)
         {
-            var dynamicPropertiesPage = LeftPanel.Elements.DynamicProperties();
-
-            var isColorChanged = dynamicPropertiesPage.IsColorButtonColorChanged();
+            var isColorChanged = LeftPanel.Elements.DynamicProperties()
+                .IsColorButtonColorChanged();
 
             Assert.That(isColorChanged, Is.EqualTo(expectedResult), "Button should change its color");
         }

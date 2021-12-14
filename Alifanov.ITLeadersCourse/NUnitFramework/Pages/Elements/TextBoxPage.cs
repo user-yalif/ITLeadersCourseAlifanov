@@ -35,6 +35,8 @@ namespace NUnitFramework.Pages.Elements
 
         public TextBoxPage InputEmail(string email)
         {
+            Logger.Log.Info("Input Email {0}", email);
+
             EmailInput.Clear();
             EmailInput.SendKeys(email);
 
@@ -43,6 +45,8 @@ namespace NUnitFramework.Pages.Elements
 
         public TextBoxPage InputCurrentAddress(string currentAddress)
         {
+            Logger.Log.Info("Input Current Address {0}", currentAddress);
+
             CurrentAddressTextArea.Clear();
             CurrentAddressTextArea.SendKeys(currentAddress);
 
@@ -51,6 +55,8 @@ namespace NUnitFramework.Pages.Elements
 
         public TextBoxPage InputPermanentAddress(string permanentAddress)
         {
+            Logger.Log.Info("Input Permanent Address {0}", permanentAddress);
+
             PermanentAddressTextArea.Clear();
             PermanentAddressTextArea.SendKeys(permanentAddress);
 
@@ -66,35 +72,35 @@ namespace NUnitFramework.Pages.Elements
             return this;
         }
 
-        public string GetNameOutputMessage()
+        public string GetOutputName()
         {
             Logger.Log.Info("Try to get Name output message");
 
-            return NameOutputMessage.Text;
+            return NameOutputMessage.Text.Split(":")[1];
         }
 
-        public string GetEmailOutputMessage()
+        public string GetOutputEmail()
         {
             Logger.Log.Info("Try to get Email output message");
 
-            return EmailOutputMessage.Text;
+            return EmailOutputMessage.Text.Split(":")[1];
         }
 
-        public string GetCurrentAddressMessage()
+        public string GetOutputCurrentAddress()
         {
             Logger.Log.Info("Try to get Current Address output message");
 
-            return CurrentAddressOutputMessage.Text;
+            return CurrentAddressOutputMessage.Text.Split(":")[1];
         }
 
-        public string GetPermanentAddressMessage()
+        public string GetOutputPermanentAddress()
         {
             Logger.Log.Info("Try to get Permanent Address output message");
 
-            return PermanentAddressOutputMessage.Text;
+            return PermanentAddressOutputMessage.Text.Split(":")[1];
         }
 
-        public TextBoxPage SubmitInputedData(string fullName, string email, string currentAddress, string permanentAddress)
+        public TextBoxPage SubmitData(string fullName, string email, string currentAddress, string permanentAddress)
         {
             InputFullName(fullName)
                     .InputEmail(email)

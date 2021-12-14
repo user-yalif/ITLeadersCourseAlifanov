@@ -7,13 +7,22 @@ namespace NUnitFramework.Pages.Elements
 {
     public class LinksPage : BasePage
     {
-        private By CreatedLinkOutputLocator = By.CssSelector("p#linkResponse");
+        private readonly By CreatedLinkOutputLocator = By.CssSelector("p#linkResponse");
 
         private IWebElement CreatedLink => FindElement(By.CssSelector("a#created"));
 
         private IWebElement CreatedLinkOutput => FindElement(CreatedLinkOutputLocator);
 
         private IWebElement HomeLink => FindElement(By.Id("simpleLink"));
+
+        public NewHomePage ClickOnHomeLink()
+        {
+            Logger.Log.Info("Click on Home Link");
+
+            HomeLink.Click();
+
+            return new NewHomePage();
+        }
 
         public LinksPage ClickOnCreatedLink()
         {
@@ -31,15 +40,6 @@ namespace NUnitFramework.Pages.Elements
             Waiter.WaitUntilElementToBePresent(CreatedLinkOutputLocator);
 
             return CreatedLinkOutput.Text;
-        }
-
-        public NewHomePage ClickOnHomeLink()
-        {
-            Logger.Log.Info("Click on Home Link");
-
-            HomeLink.Click();
-
-            return new NewHomePage();
         }
     }
 }

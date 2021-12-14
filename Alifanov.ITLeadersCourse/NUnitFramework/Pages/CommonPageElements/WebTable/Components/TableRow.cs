@@ -6,12 +6,12 @@
 
     public class TableRow
     {
-        private IWebElement RowElement { get; set; }
+        private IWebElement TableRowElement { get; set; }
 
         private IList<TableCell> RowCells =>
-            RowElement.FindElements(By.XPath(".//div[@role='gridcell']")).Select(cell => new TableCell(cell)).ToList();
+            TableRowElement.FindElements(By.XPath(".//div[@role='gridcell']")).Select(cell => new TableCell(cell)).ToList();
 
-        public TableRow(IWebElement element) => RowElement = element;
+        public TableRow(IWebElement element) => TableRowElement = element;
 
         public bool HasValue(string value) =>
             RowCells.FirstOrDefault(cell => cell.HasValue(value)) != null;

@@ -15,7 +15,7 @@ namespace NUnitFramework.Tests.Elements
             var initialRowsCount = webTablesPage.GetNotEmptyRowsCount();
 
             webTablesPage.ClickAddButton()
-                .SubmitInputedData(firstName, lastName, email, age, salary, department);
+                .SubmitRegistrationForm(firstName, lastName, email, age, salary, department);
 
             var actualRowsCount = webTablesPage.GetNotEmptyRowsCount();
             var actualFirstName = webTablesPage.GetFirstNameByRowValue(email);
@@ -34,7 +34,7 @@ namespace NUnitFramework.Tests.Elements
                 Assert.That(actualDepartment, Is.EqualTo(department), "Wrong Department");
             });
 
-            webTablesPage.ClickOnRowDeleteButtonByEmail(email);
+            webTablesPage.ClickOnDeleteButtonByRowValue(email);
             actualRowsCount = webTablesPage.GetNotEmptyRowsCount();
 
             Assert.That(actualRowsCount, Is.EqualTo(initialRowsCount), "Wrong rows count");

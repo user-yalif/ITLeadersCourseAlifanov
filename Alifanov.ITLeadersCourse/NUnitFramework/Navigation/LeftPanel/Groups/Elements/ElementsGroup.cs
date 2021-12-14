@@ -4,14 +4,14 @@
 
     public class ElementsGroup : BaseGroup
     {
-        public DynamicPropertiesPage DynamicProperties() => NavigateTo<DynamicPropertiesPage>("dynamic-properties");
+        public TextBoxPage TextBox() => NavigateTo<TextBoxPage>("text-box");
+
+        public WebTablesPage WebTables() => NavigateTo<WebTablesPage>("webtables");
 
         public ButtonsPage Buttons() => NavigateTo<ButtonsPage>("buttons");
 
         public LinksPage Links() => NavigateTo<LinksPage>("links");
 
-        public TextBoxPage TextBox() => NavigateTo<TextBoxPage>("text-box");
-
-        public WebTablesPage WebTables() => NavigateTo<WebTablesPage>("webtables");
+        public DynamicPropertiesPage DynamicProperties() => NavigateTo<DynamicPropertiesPage>("dynamic-properties");
     }
 }

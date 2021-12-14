@@ -1,7 +1,7 @@
 ﻿using NUnitFramework.Logging;
 using OpenQA.Selenium;
 
-namespace NUnitFramework.Pages.Elements.WebTablesElement
+namespace NUnitFramework.Pages.Elements.WebTablesElements
 {
     public class RegistrationFormPage
     {
@@ -95,7 +95,7 @@ namespace NUnitFramework.Pages.Elements.WebTablesElement
             return new WebTablesPage();
         }
 
-        public WebTablesPage SubmitInputedData(string firstName, string lastName, string email, string age, string salary, string department)
+        public WebTablesPage SubmitRegistrationForm(string firstName, string lastName, string email, string age, string salary, string department)
         {
             Logger.Log.Info("Try to Submit data");
 
@@ -106,8 +106,6 @@ namespace NUnitFramework.Pages.Elements.WebTablesElement
                     .InputSalary(salary)
                     .InputDepartment(department)
                     .ClickOnSubmitButton();
-
-            Logger.Log.Info("Submit data");
 
             return new WebTablesPage();
         }

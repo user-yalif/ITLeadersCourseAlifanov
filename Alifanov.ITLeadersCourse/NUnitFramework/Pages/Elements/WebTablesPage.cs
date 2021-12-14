@@ -1,6 +1,6 @@
 ﻿using NUnitFramework.Logging;
 using NUnitFramework.Pages.CommonPageElements.WebTable;
-using NUnitFramework.Pages.Elements.WebTablesElement;
+using NUnitFramework.Pages.Elements.WebTablesElements;
 using OpenQA.Selenium;
 
 namespace NUnitFramework.Pages.Elements
@@ -9,7 +9,7 @@ namespace NUnitFramework.Pages.Elements
     {
         private IWebElement AddButton => FindElement(By.CssSelector("button#addNewRecordButton"));
 
-        private WebTable WebTable => new WebTable(FindElement(By.XPath("//div[@class='rt-table' and @role='grid']")));
+        private WebTable WebTable => new(FindElement(By.XPath("//div[@class='rt-table' and @role='grid']")));
 
         private RegistrationFormPage RegistrationForm => new(Driver);
 
@@ -22,19 +22,20 @@ namespace NUnitFramework.Pages.Elements
             return RegistrationForm;
         }
 
-        public string GetFirstNameByRowValue(string value) =>
-            WebTable.GetCellByColumnNameAndRowValue("First Name", value).GetText();
+        public string GetFirstNameByRowValue(string rowValue) =>
+            WebTable.GetCellByColumnNameAndRowValue("First Name", rowValue).GetText();
 
-        public string GetLastNameByRowValue(string value) =>
-            WebTable.GetCellByColumnNameAndRowValue("Last Name", value).GetText();
-        public string GetEmailByRowValue(string value) =>
-            WebTable.GetCellByColumnNameAndRowValue("Email", value).GetText();
+        public string GetLastNameByRowValue(string rowValue) =>
+            WebTable.GetCellByColumnNameAndRowValue("Last Name", rowValue).GetText();
 
-        public string GetAgeByRowValue(string value) =>
-            WebTable.GetCellByColumnNameAndRowValue("Age", value).GetText();
+        public string GetEmailByRowValue(string rowValue) =>
+            WebTable.GetCellByColumnNameAndRowValue("Email", rowValue).GetText();
 
-        public string GetDepartmentByRowValue(string value) =>
-            WebTable.GetCellByColumnNameAndRowValue("Department", value).GetText();
+        public string GetAgeByRowValue(string rowValue) =>
+            WebTable.GetCellByColumnNameAndRowValue("Age", rowValue).GetText();
+
+        public string GetDepartmentByRowValue(string rowValue) =>
+            WebTable.GetCellByColumnNameAndRowValue("Department", rowValue).GetText();
 
         public int GetNotEmptyRowsCount()
         {
@@ -43,11 +44,11 @@ namespace NUnitFramework.Pages.Elements
             return WebTable.GetNotEmptyTableRows().Count;
         }
 
-        public WebTablesPage ClickOnRowDeleteButtonByEmail(string email)
+        public WebTablesPage ClickOnDeleteButtonByRowValue(string rowValue)
         {
             Logger.Log.Info("Click on Row Delete button");
 
-            var actionCell = WebTable.GetCellByColumnNameAndRowValue("Action", email);
+            var actionCell = WebTable.GetCellByColumnNameAndRowValue("Action", rowValue);
             actionCell.GetCellValue(By.XPath(".//span[@title='Delete']")).Click();
 
             return this;

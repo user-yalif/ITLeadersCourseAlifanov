@@ -6,15 +6,15 @@
 
     public class HeaderRow
     {
-        private IWebElement RowElement { get; set; }
+        private IWebElement HeaderRowElement { get; set; }
 
         private IList<TableCell> HeaderCells =>
-            RowElement.FindElements(By.XPath(".//div[@role='columnheader']")).Select(cell => new TableCell(cell)).ToList();
+            HeaderRowElement.FindElements(By.XPath(".//div[@role='columnheader']")).Select(cell => new TableCell(cell)).ToList();
 
         private IList<string> ColumnsNames =>
             HeaderCells.Select(cell => cell.GetText()).ToList();
 
-        public HeaderRow(IWebElement element) => RowElement = element;
+        public HeaderRow(IWebElement element) => HeaderRowElement = element;
 
         public int GetColumnIndex(string columnName) => ColumnsNames.IndexOf(columnName);
     }
