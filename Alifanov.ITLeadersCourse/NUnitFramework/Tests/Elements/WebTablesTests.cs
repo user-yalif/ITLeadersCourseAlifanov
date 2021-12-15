@@ -39,5 +39,39 @@ namespace NUnitFramework.Tests.Elements
 
             Assert.That(actualRowsCount, Is.EqualTo(initialRowsCount), "Wrong rows count");
         }
+
+        [Test]
+        [Description("Test edits inputs in the row, check if all the data in the row is equal to filled in Registration Form")]
+        [TestCase("cierra@example.com", "Smith", "cierra.smith@example.com", "40", "30000")]
+        public void SubmitRegistrationFormEdit(string rowToBeChanged, string lastName, string email, string age, string salary)
+        {
+            var webTablesPage = LeftPanel.Elements.WebTables();
+
+            var initialFirstName = webTablesPage.GetFirstNameByRowValue(rowToBeChanged);
+            var initialLastName = webTablesPage.GetLastNameByRowValue(rowToBeChanged);
+            var initialEmail = webTablesPage.GetEmailByRowValue(rowToBeChanged);
+            var initialAge = webTablesPage.GetAgeByRowValue(rowToBeChanged);
+            var initialSalary = webTablesPage.GetSalaryByRowValue(rowToBeChanged);
+            var initialDepartment = webTablesPage.GetDepartmentByRowValue(rowToBeChanged);
+
+            webTablesPage.ClickOnEditButtonByRowValue(rowToBeChanged)
+                .SubmitRegistrationForm(lastName: lastName, email: email, age: age, salary: salary);
+
+            var actualFirstName = webTablesPage.GetFirstNameByRowValue(email);
+            var actualLastName = webTablesPage.GetLastNameByRowValue(email);
+            var actualEmail = webTablesPage.GetEmailByRowValue(email);
+            var actualAge = webTablesPage.GetAgeByRowValue(email);
+            var actualSalary = webTablesPage.GetSalaryByRowValue(email);
+            var actualDepartment = webTablesPage.GetDepartmentByRowValue(email);
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(actualFirstName, Is.EqualTo(initialFirstName), "Wrong Last Name");
+                Assert.That(actualLastName, Is.EqualTo(lastName), "Wrong Last Name");
+                Assert.That(actualAge, Is.EqualTo(age), "Wrong Age");
+                Assert.That(actualSalary, Is.EqualTo(salary), "Wrong salary");
+                Assert.That(actualDepartment, Is.EqualTo(initialDepartment), "Wrong Department");
+            });
+        }
     }
 }
