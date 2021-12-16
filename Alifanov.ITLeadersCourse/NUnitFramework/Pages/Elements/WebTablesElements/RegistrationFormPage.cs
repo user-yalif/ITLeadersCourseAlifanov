@@ -28,60 +28,78 @@ namespace NUnitFramework.Pages.Elements.WebTablesElements
 
         public RegistrationFormPage InputFirstName(string firstName)
         {
-            Logger.Log.Info("Input First Name {0}", firstName);
+            if (firstName != null)
+            {
+                Logger.Log.Info("Input First Name {0}", firstName);
 
-            FirstNameInput.Clear();
-            FirstNameInput.SendKeys(firstName);
+                FirstNameInput.Clear();
+                FirstNameInput.SendKeys(firstName);
+            }
 
             return this;
         }
 
         public RegistrationFormPage InputLastName(string lastName)
         {
-            Logger.Log.Info("Input Last Name {0}", lastName);
+            if (lastName != null)
+            {
+                Logger.Log.Info("Input Last Name {0}", lastName);
 
-            LastNameInput.Clear();
-            LastNameInput.SendKeys(lastName);
+                LastNameInput.Clear();
+                LastNameInput.SendKeys(lastName);
+            }
 
             return this;
         }
 
         public RegistrationFormPage InputEmail(string email)
         {
-            Logger.Log.Info("Input Email {0}", email);
+            if (email != null)
+            {
+                Logger.Log.Info("Input Email {0}", email);
 
-            EmailInput.Clear();
-            EmailInput.SendKeys(email);
+                EmailInput.Clear();
+                EmailInput.SendKeys(email);
+            }
 
             return this;
         }
 
         public RegistrationFormPage InputAge(string age)
         {
-            Logger.Log.Info("Input Age {0}", age);
+            if (age != null)
+            {
+                Logger.Log.Info("Input Age {0}", age);
 
-            AgeInput.Clear();
-            AgeInput.SendKeys(age);
+                AgeInput.Clear();
+                AgeInput.SendKeys(age);
+            }
 
             return this;
         }
 
         public RegistrationFormPage InputSalary(string salary)
         {
-            Logger.Log.Info("Input Salary {0}", salary);
+            if (salary != null)
+            {
+                Logger.Log.Info("Input Salary {0}", salary);
 
-            SalaryInput.Clear();
-            SalaryInput.SendKeys(salary);
+                SalaryInput.Clear();
+                SalaryInput.SendKeys(salary);
+            }
 
             return this;
         }
 
         public RegistrationFormPage InputDepartment(string department)
         {
-            Logger.Log.Info("Input Department {0}", department);
+            if (department != null)
+            {
+                Logger.Log.Info("Input Department {0}", department);
 
-            DepartmentInput.Clear();
-            DepartmentInput.SendKeys(department);
+                DepartmentInput.Clear();
+                DepartmentInput.SendKeys(department);
+            }
 
             return this;
         }
@@ -95,7 +113,7 @@ namespace NUnitFramework.Pages.Elements.WebTablesElements
             return new WebTablesPage();
         }
 
-        public WebTablesPage SubmitRegistrationForm(string firstName, string lastName, string email, string age, string salary, string department)
+        public WebTablesPage SubmitRegistrationForm(string firstName = null, string lastName = null, string email = null, string age = null, string salary = null, string department = null)
         {
             Logger.Log.Info("Try to Submit data");
 

@@ -34,6 +34,9 @@ namespace NUnitFramework.Pages.Elements
         public string GetAgeByRowValue(string rowValue) =>
             WebTable.GetCellByColumnNameAndRowValue("Age", rowValue).GetText();
 
+        public string GetSalaryByRowValue(string rowValue) =>
+            WebTable.GetCellByColumnNameAndRowValue("Salary", rowValue).GetText();
+
         public string GetDepartmentByRowValue(string rowValue) =>
             WebTable.GetCellByColumnNameAndRowValue("Department", rowValue).GetText();
 
@@ -52,6 +55,16 @@ namespace NUnitFramework.Pages.Elements
             actionCell.GetCellValue(By.XPath(".//span[@title='Delete']")).Click();
 
             return this;
+        }
+
+        public RegistrationFormPage ClickOnEditButtonByRowValue(string rowValue)
+        {
+            Logger.Log.Info("Click on Row Edit button");
+
+            var actionCell = WebTable.GetCellByColumnNameAndRowValue("Action", rowValue);
+            actionCell.GetCellValue(By.XPath(".//span[@title='Edit']")).Click();
+
+            return RegistrationForm;
         }
     }
 }
