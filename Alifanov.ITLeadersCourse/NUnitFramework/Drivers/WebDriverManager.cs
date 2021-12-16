@@ -5,12 +5,15 @@
     using NUnit.Framework;
     using NUnitFramework.Drivers.Implementations;
     using NUnitFramework.Logging;
+    using NUnitFramework.Utils;
     using OpenQA.Selenium;
     using static NUnitFramework.AppSettings.SettingsConfigurator;
 
     public static class WebDriverManager
     {
         private static string PathToDriver { get; } = AppDomain.CurrentDomain.BaseDirectory;
+
+        public static string DownloadPath { get; } = PathUtils.ConfigurePathToBaseDirectory(Settings.Paths.DownloadsDirectory);
 
         private static ConcurrentDictionary<string, IWebDriver> DriversInUse { get; set; } = new();
 
@@ -24,7 +27,7 @@
                 {
                     var driver = new DriverFactory()
                             .GetDriver(Settings.Browser)
-                            .SetUpDriver(PathToDriver);
+                            .SetUpDriver(PathToDriver, DownloadPath);
 
                     if (driver == null)
                     {

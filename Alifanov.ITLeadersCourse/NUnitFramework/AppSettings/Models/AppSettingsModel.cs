@@ -12,9 +12,18 @@
 
         public PathsModel Paths { get; set; }
 
+        public TestDataModel TestData { get; set; }
+
         public class PathsModel
         {
             public string ScreenshotsOutput { get; set; }
+
+            public string DownloadsDirectory { get; set; }
+        }
+
+        public class TestDataModel
+        {
+            public string JpegFileToUpload { get; set; }
         }
     }
 }

@@ -12,6 +12,8 @@
 
         public LinksPage Links() => NavigateTo<LinksPage>("links");
 
+        public UploadAndDownloadPage UploadAndDowload() => NavigateTo<UploadAndDownloadPage>("upload-download");
+
         public DynamicPropertiesPage DynamicProperties() => NavigateTo<DynamicPropertiesPage>("dynamic-properties");
     }
 }
