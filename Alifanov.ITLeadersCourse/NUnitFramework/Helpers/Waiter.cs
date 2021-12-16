@@ -1,9 +1,9 @@
 ﻿namespace NUnitFramework.Helpers
 {
+    using System;
     using NUnitFramework.Drivers;
     using OpenQA.Selenium;
     using OpenQA.Selenium.Support.UI;
-    using System;
     using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
 
     public static class Waiter
@@ -21,13 +21,13 @@
 
         public static bool WaitUntilElementToBePresent(By locator) =>
             WebDriverWait.Until(IsElementPresent(locator));
-              
+
         public static IWebElement WaitUntilElementToBeClickable(By locator) =>
             WebDriverWait.Until(ExpectedConditions.ElementToBeClickable(locator));
 
         public static bool WaitUntilSertainCondition(Func<IWebDriver, bool> condition) =>
             WebDriverWait.Until(condition);
-                      
+
         private static Func<IWebDriver, bool> IsElementPresent(By locator)
         {
             return webDriver =>

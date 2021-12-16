@@ -1,5 +1,5 @@
-﻿using NUnitFramework.Drivers;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using NUnitFramework.Drivers;
 
 namespace NUnitFramework.Helpers
 {

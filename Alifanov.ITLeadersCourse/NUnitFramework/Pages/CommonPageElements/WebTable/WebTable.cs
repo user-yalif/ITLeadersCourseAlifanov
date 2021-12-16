@@ -1,11 +1,10 @@
 ﻿namespace NUnitFramework.Pages.CommonPageElements.WebTable
 {
-    using NUnitFramework.Logging;
-    using NUnitFramework.Pages.CommonPageElements.WebTable.Components;
-    using OpenQA.Selenium;
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using NUnitFramework.Pages.CommonPageElements.WebTable.Components;
+    using OpenQA.Selenium;
 
     public class WebTable
     {

@@ -1,6 +1,5 @@
 ﻿namespace ConsoleApp.WebDriver.Drivers.Implementations
 {
-    using System;
     using ConsoleApp.WebDriver.Drivers.Interfaces;
     using OpenQA.Selenium;
     using OpenQA.Selenium.Chrome;

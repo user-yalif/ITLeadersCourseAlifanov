@@ -1,9 +1,9 @@
 ﻿namespace NUnitFramework.Tests.Elements
 {
+    using System.IO;
     using NUnit.Framework;
     using NUnitFramework.Navigation.LeftPanel;
     using NUnitFramework.Utils;
-    using System.IO;
     using static NUnitFramework.AppSettings.SettingsConfigurator;
 
     public class UploadAndDownloadTests : BaseTest
@@ -17,7 +17,7 @@
             var pathToFile = PathUtils.Combine(DownloadDirectory, fileName);
             FileInfo fileInfo = new(pathToFile);
 
-            Assert.Multiple(() => 
+            Assert.Multiple(() =>
             {
                 Assert.That(fileInfo.Length, Is.EqualTo(4096), "Wrong file size");
                 Assert.That(fileInfo.Name, Is.EqualTo(fileName), "Wrong file name");

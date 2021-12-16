@@ -1,11 +1,11 @@
 ﻿namespace NUnitFramework.Logging.Imlementations
 {
+    using System.IO;
+    using System.Reflection;
     using log4net;
     using log4net.Config;
     using log4net.Repository;
     using NUnitFramework.Logging.Interfaces;
-    using System.IO;
-    using System.Reflection;
 
     public class Log4NetInstance : ILoggerInstance
     {
