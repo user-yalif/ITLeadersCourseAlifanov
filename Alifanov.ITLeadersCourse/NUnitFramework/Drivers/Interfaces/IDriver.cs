@@ -4,6 +4,6 @@
 
     public interface IDriver
     {
-        IWebDriver SetUpDriver(string pathToDriver);
+        IWebDriver SetUpDriver(string pathToDriver, string downloadPath);
     }
 }

@@ -24,6 +24,9 @@
               
         public static IWebElement WaitUntilElementToBeClickable(By locator) =>
             WebDriverWait.Until(ExpectedConditions.ElementToBeClickable(locator));
+
+        public static bool WaitUntilSertainCondition(Func<IWebDriver, bool> condition) =>
+            WebDriverWait.Until(condition);
                       
         private static Func<IWebDriver, bool> IsElementPresent(By locator)
         {

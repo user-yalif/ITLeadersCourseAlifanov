@@ -7,12 +7,14 @@
     using NUnitFramework.Drivers;
     using NUnitFramework.Helpers;
     using NUnitFramework.Logging;
+    using NUnitFramework.Utils;
     using static NUnitFramework.AppSettings.SettingsConfigurator;
 
     public class BaseTest
     {
-        private static string PathToScreenshots =>
-            Path.Combine(AppDomain.CurrentDomain.BaseDirectory + Settings.Paths.ScreenshotsOutput);
+        private static string PathToScreenshots => PathUtils.ConfigurePathToBaseDirectory(Settings.Paths.ScreenshotsOutput);
+
+        protected static string DownloadDirectory => WebDriverManager.DownloadPath;
 
         private static TestStatus TestStatus => TestContext.CurrentContext.Result.Outcome.Status;
 
@@ -45,6 +47,8 @@
 
                     Logger.Log.Info("Screenshot {0} was taken and put to {1}", screenshotName, PathToScreenshots);
                 }
+
+                FileUtils.RemoveAll(DownloadDirectory);
             }
             finally
             {
