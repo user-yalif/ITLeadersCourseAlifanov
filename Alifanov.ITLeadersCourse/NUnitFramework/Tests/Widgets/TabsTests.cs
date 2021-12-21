@@ -26,7 +26,7 @@ namespace NUnitFramework.Tests.Widgets
             tabsPage.ClickOnTab("origin");
 
             string actualOriginTabText = tabsPage.GetOriginTabText();
-            string expectedOriginTabText = "de Finibus Bonorum et Malorum";
+            string expectedOriginTabText = "\"de Finibus Bonorum et Malorum\"";
             Assert.That(actualOriginTabText.Contains(expectedOriginTabText), "Expected text doesn't exist");
 
             tabsPage.ClickOnTab("use");

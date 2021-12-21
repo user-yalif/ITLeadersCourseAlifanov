@@ -19,4 +19,4 @@ using System.Runtime.InteropServices;
 
 // NUnit
 [assembly: Parallelizable(ParallelScope.Fixtures)]
-[assembly: LevelOfParallelism(4)]
+[assembly: LevelOfParallelism(1)]
