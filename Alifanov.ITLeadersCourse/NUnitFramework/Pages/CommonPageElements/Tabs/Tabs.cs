@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnitFramework.Helpers;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace NUnitFramework.Pages.CommonPageElements.Tabs
     {
         private IWebElement TabsRow { get; set; }
 
-        private IList<IWebElement> TabsList => TabsRow.FindElements(By.XPath("//a[@role='tab']"));
+        private IList<IWebElement> TabsList => TabsRow.FindElements(By.XPath(".//a[@role='tab']"));
 
         public Tabs(IWebElement element)
         {
@@ -27,7 +28,16 @@ namespace NUnitFramework.Pages.CommonPageElements.Tabs
             if (!isSelected && !isDisabled)
             {
                 tabElement.Click();
+
+                Waiter.WaitUntilCertainCondition(driver => tabElement.GetAttribute("class").Contains("active"));
             }
+        }
+
+        public bool IsTabDisabled(string tabName)
+        {
+            var tabElement = TabsList.FirstOrDefault(tab => tabName.Equals(tab.Text.Trim(), StringComparison.OrdinalIgnoreCase));
+
+            return tabElement.GetAttribute("class").Contains("disabled");
         }
     }
 }

@@ -27,19 +27,22 @@ namespace NUnitFramework.Tests.Widgets
 
             string actualOriginTabText = tabsPage.GetOriginTabText();
             string expectedOriginTabText = "de Finibus Bonorum et Malorum";
-            Assert.That(actualOriginTabText.Contains(expectedOriginTabText), "Expected text doesn't exist");
+            Assert.That(actualOriginTabText, Does.Contain(expectedOriginTabText), "Expected text doesn't exist");
 
             tabsPage.ClickOnTab("use");
 
-            string actualUseTabText = tabsPage.GetUSeTabText();
+            string actualUseTabText = tabsPage.GetUseTabText();
             string expectedUseTabText = "'Content here, content here'";
-            Assert.That(actualUseTabText.Contains(expectedUseTabText), "Expected text doesn't exist");
+            Assert.That(actualUseTabText, Does.Contain(expectedUseTabText), "Expected text doesn't exist");
 
             tabsPage.ClickOnTab("what");
 
             string actualWhatTabText = tabsPage.GetWhatTabText();
             string expectedWhatTabText = "Lorem Ipsum is simply dummy text";
-            Assert.That(actualWhatTabText.Contains(expectedWhatTabText), "Expected text doesn't exist");
+            Assert.That(actualWhatTabText, Does.Contain(expectedWhatTabText), "Expected text doesn't exist");
+
+            var isMoreTabDisabled = tabsPage.IsTabDisabled("more");
+            Assert.That(isMoreTabDisabled, Is.True, "More TAb should be disabled");
         }
     }
 }

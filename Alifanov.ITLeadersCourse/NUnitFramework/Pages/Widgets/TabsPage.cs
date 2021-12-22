@@ -1,5 +1,4 @@
-﻿using NUnitFramework.Helpers;
-using NUnitFramework.Logging;
+﻿using NUnitFramework.Logging;
 using NUnitFramework.Pages.CommonPageElements.Tabs;
 using OpenQA.Selenium;
 
@@ -9,11 +8,11 @@ namespace NUnitFramework.Pages.Widgets
     {
         private Tabs TabsRowElement => new(FindElement(By.XPath("//nav[@class='nav nav-tabs']")));
 
-        private IWebElement OriginTabText => FindElement(By.CssSelector("div[id='demo-tabpane-origin']>p"));
+        private IWebElement OriginTabText => FindElement(By.CssSelector("div[id='demo-tabpane-origin']"));
 
-        private IWebElement UseTabText => FindElement(By.CssSelector("div[id='demo-tabpane-use']>p"));
+        private IWebElement UseTabText => FindElement(By.CssSelector("div[id='demo-tabpane-use']"));
 
-        private IWebElement WhatTabText => FindElement(By.CssSelector("div[id='demo-tabpane-what']>p"));
+        private IWebElement WhatTabText => FindElement(By.CssSelector("div[id='demo-tabpane-what']"));
 
         public TabsPage ClickOnTab(string tabName)
         {
@@ -28,15 +27,13 @@ namespace NUnitFramework.Pages.Widgets
         {
             Logger.Log.Info("Get text of the Origin Tab");
 
-            Waiter.WaitUntilElementToBeEnabled(OriginTabText);
             return OriginTabText.Text.Trim();
         }
 
-        public string GetUSeTabText()
+        public string GetUseTabText()
         {
             Logger.Log.Info("Get text of the Use Tab");
 
-            Waiter.WaitUntilElementToBeEnabled(UseTabText);
             return UseTabText.Text.Trim();
         }
 
@@ -44,8 +41,12 @@ namespace NUnitFramework.Pages.Widgets
         {
             Logger.Log.Info("Get text of the What Tab");
 
-            Waiter.WaitUntilElementToBeEnabled(WhatTabText);
             return WhatTabText.Text.Trim();
+        }
+
+        public bool IsTabDisabled(string tabName)
+        {
+            return TabsRowElement.IsTabDisabled(tabName);
         }
     }
 }
