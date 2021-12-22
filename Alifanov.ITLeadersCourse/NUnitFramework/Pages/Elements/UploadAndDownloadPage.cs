@@ -24,7 +24,7 @@
 
             DownloadButton.Click();
 
-            Waiter.WaitUntilSertainCondition(driver => FileUtils.Exists(pathToFile));
+            Waiter.WaitUntilCertainCondition(driver => FileUtils.Exists(pathToFile));
 
             Logger.Log.Info("Fiel {0} was downloaded", fileName);
 
