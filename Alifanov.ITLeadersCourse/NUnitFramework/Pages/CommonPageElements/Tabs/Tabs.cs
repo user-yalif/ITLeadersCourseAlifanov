@@ -1,10 +1,8 @@
-﻿using NUnitFramework.Helpers;
-using OpenQA.Selenium;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using NUnitFramework.Helpers;
+using OpenQA.Selenium;
 
 namespace NUnitFramework.Pages.CommonPageElements.Tabs
 {
@@ -29,7 +27,13 @@ namespace NUnitFramework.Pages.CommonPageElements.Tabs
             {
                 tabElement.Click();
 
-                Waiter.WaitUntilCertainCondition(driver => tabElement.GetAttribute("class").Contains("active"));
+                Waiter.WaitUntilElementsAttributeValueContains(tabElement, "class", "active");
+
+                var tabId = tabElement.GetAttribute("id").Split("-");
+                var tabContent = TabsRow.FindElement(By.XPath($"./following-sibling::div/div[@id='{tabId.First()}-tabpane-{tabId.Last()}']"));
+
+                Waiter.WaitUntilElementsAttributeValueContains(tabContent, "class", "active");
+                Waiter.WaitUntilCertainCondition(driver => tabContent.FindElements(By.XPath("./*")).Count != 0);
             }
         }
 
