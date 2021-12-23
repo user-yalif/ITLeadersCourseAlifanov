@@ -8,6 +8,8 @@
     {
         protected IWebDriver Driver { get; }
 
+        protected IWebElement Ban => FindElement(By.Id("close-fixedban"));
+
         public BasePage()
         {
             Driver = WebDriverManager.Driver;
@@ -16,5 +18,7 @@
         protected IWebElement FindElement(By by) => Driver.FindElement(by);
 
         protected IList<IWebElement> FindElements(By by) => Driver.FindElements(by);
+
+        protected void CloseBan() => Ban.Click();
     }
 }
