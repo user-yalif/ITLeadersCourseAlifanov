@@ -18,5 +18,45 @@
 
         public static bool WaitUntilElementToBeEnabled(IWebElement element) =>
             WebDriverWait.Until(driver => element.Enabled);
+
+        public static bool WaitUntilElementToBePresent(By locator) =>
+            WebDriverWait.Until(IsElementPresent(locator));
+
+        public static IWebElement WaitUntilElementToBeClickable(By locator) =>
+            WebDriverWait.Until(ExpectedConditions.ElementToBeClickable(locator));
+
+        public static bool WaitUntilCertainCondition(Func<IWebDriver, bool> condition) =>
+            WebDriverWait.Until(condition);
+
+        private static Func<IWebDriver, bool> IsElementPresent(By locator)
+        {
+            return webDriver =>
+            {
+                try
+                {
+                    webDriver.FindElement(locator);
+                    return true;
+                }
+                catch (NoSuchElementException)
+                {
+                    return false;
+                }
+            };
+        }
+
+        public static bool WaitUntilElementsAttributeValueContains(IWebElement element, string attribute, string parameter) =>
+            WebDriverWait.Until(driver =>
+            {
+                var attributeValue = element.GetAttribute(attribute);
+
+                if (attributeValue.Contains(parameter))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            });
     }
 }

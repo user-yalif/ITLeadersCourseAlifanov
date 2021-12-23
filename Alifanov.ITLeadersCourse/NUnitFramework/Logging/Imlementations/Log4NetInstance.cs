@@ -18,19 +18,9 @@
 
             Logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
-            Logger.Info("Log4Net instance was created");
+            Logger.Info("Log4Net instance created");
 
             return this;
-        }
-
-        public void Error(string message)
-        {
-            Logger.Error(message);
-        }
-
-        public void Error(string message, params object[] args)
-        {
-            Logger.Error(string.Format(message, args));
         }
 
         public void Info(string message)
@@ -43,14 +33,24 @@
             Logger.Info(string.Format(message, args));
         }
 
-        public void Worn(string message)
+        public void Warn(string message)
         {
             Logger.Warn(message);
         }
 
-        public void Worn(string message, params object[] args)
+        public void Warn(string message, params object[] args)
         {
             Logger.Warn(string.Format(message, args));
+        }
+
+        public void Error(string message)
+        {
+            Logger.Error(message);
+        }
+
+        public void Error(string message, params object[] args)
+        {
+            Logger.Error(string.Format(message, args));
         }
     }
 }

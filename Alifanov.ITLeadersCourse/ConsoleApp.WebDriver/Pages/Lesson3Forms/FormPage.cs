@@ -71,7 +71,7 @@
 
                     if (moveFocus)
                     {
-                        EducationCompletedInput.SendKeys(Keys.Tab); 
+                        EducationCompletedInput.SendKeys(Keys.Tab);
                     }
                 }
             }

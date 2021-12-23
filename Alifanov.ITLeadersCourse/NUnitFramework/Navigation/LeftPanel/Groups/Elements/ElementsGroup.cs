@@ -4,6 +4,16 @@
 
     public class ElementsGroup : BaseGroup
     {
+        public TextBoxPage TextBox() => NavigateTo<TextBoxPage>("text-box");
+
+        public WebTablesPage WebTables() => NavigateTo<WebTablesPage>("webtables");
+
+        public ButtonsPage Buttons() => NavigateTo<ButtonsPage>("buttons");
+
+        public LinksPage Links() => NavigateTo<LinksPage>("links");
+
+        public UploadAndDownloadPage UploadAndDowload() => NavigateTo<UploadAndDownloadPage>("upload-download");
+
         public DynamicPropertiesPage DynamicProperties() => NavigateTo<DynamicPropertiesPage>("dynamic-properties");
     }
 }
